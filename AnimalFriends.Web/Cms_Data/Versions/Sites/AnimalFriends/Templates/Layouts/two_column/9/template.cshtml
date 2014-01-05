@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href='@Url.FrontUrl().ThemeFileUrl("images/favicon.ico")' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
+    @Html.FrontHtml().Title()
+    @Html.FrontHtml().Meta()
+    @Html.FrontHtml().RegisterStyles()
+    @Html.FrontHtml().RegisterScripts()
+</head>
+<body>
+    <div id="body-container">
+        <header id="header" class="clearfix">
+            <a href="/" class="logo">
+                <img src="@Url.FrontUrl().ThemeFileUrl("images/logo-text.png")" alt="Djurens vänner Lidköping" />
+            </a>
+            @Html.FrontHtml().RenderView("Menu", ViewData)
+        </header>
+      	<div class="menu-inner">
+        	 @Html.FrontHtml().RenderView("MenuInner", ViewData)
+      	</div>
+      	<div id="main-container" class="main-alternative clearfix">
+          	@Html.FrontHtml().Position("headerContainer")
+            @Html.FrontHtml().Position("mainContainer")
+        </div>
+       @Html.FrontHtml().RenderView("Footer",ViewData)
+    </div>
+    <div class="hide">
+        @Html.FrontHtml().RenderView("LoginForm", ViewData)
+    </div>
+</body>
+</html>

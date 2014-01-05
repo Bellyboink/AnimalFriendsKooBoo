@@ -1,0 +1,217 @@
+﻿.import-settings{
+    background:#fffee3;
+    padding:1em;
+    overflow: hidden;
+    width: 100%;
+}
+
+.import-settings label{
+    display:block;
+}
+
+.import-settings select, 
+.import-settings input,
+.import-settings textarea{
+    width:90%;
+}
+
+.import input[type='text'], .import select{
+    padding: 0.5em;
+}
+
+.import-settings button{
+    display:block;
+}
+
+.import{
+    width:98%;
+    padding:1%;
+}
+
+.wrapper{
+    margin-bottom:1em;
+    padding: 1em;
+}
+.connected-wrapper{
+    background: #F6FBE5;
+}
+.connected-wrapper table{
+    background:#F6FBE5;
+}
+
+.wrapper table th:first-child{
+    width:20%;
+}
+
+.condition-wrapper table{
+    background:#FFEDED;
+}
+
+.defaults-wrapper table{
+    background:#fbffc5;
+}
+
+.connection{
+    width:100%;
+}
+
+.connection td{
+    padding:1em;
+    text-align:center;
+}
+
+.connection th{
+    text-align:center;
+    height: 3em;
+    border-bottom: 3px solid rgba(119, 119, 119, 0.54);
+}
+
+.col-events{
+    width:50%;
+}
+
+.field {
+    float: left;
+    width: 42%;
+}
+.field select,
+.field input {
+    width: 85%
+}
+
+.field label {
+    display: block;
+}
+
+.functions {
+    padding: 0 1.5em;
+}
+
+.functions li {
+    overflow: hidden;
+    padding: 1em 0;
+}
+
+.button-function {
+    float: right;
+    margin-top: 2%;
+}
+
+.connection-remove{
+    float:right;
+}
+.output{
+    overflow:hidden;
+    width:100%;
+}
+
+.event-selector{
+    width:100%;
+}
+
+.event-row{
+    background: #F6FBE5;
+}
+
+/* Jquery UI */
+
+.ui-accordion-header{
+    border-bottom: 3px solid rgba(85, 85, 85, 0.25);
+    margin-bottom: 3px;
+}
+
+.header-connect{
+    background:#F6FBE5;
+}
+
+.header-condition{
+    background:#FFEDED;
+}
+
+.header-defaults{
+    background:#FBFFC5;
+}
+
+.ui-icon{
+    width:16px;
+    height:16px;
+}
+
+.ui-state-default .ui-icon {
+    background-image: url(http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png);
+}
+.ui-icon-triangle-1-s {
+    background-position: -64px -16px;
+}
+
+.import-setting {
+    width: 100%;
+    border-bottom: 2px solid #005F8D;
+}
+
+.import-setting th{
+    border-bottom: 2px solid #005F8D;
+}
+
+.import-setting td {
+    padding: 1.5em;
+}
+
+.import-setting th {
+    background: #0078B1;
+    color: white;
+    padding: 1em 1em 0;
+    text-transform: uppercase;
+}
+
+.import-setting .col-func {
+    width: 10%;
+}
+
+.import-setting tr:nth-of-type(even) {
+  background-color:#eee;
+}
+
+.import-info dl{
+    display: block;
+}
+.import-info dt{
+    font-weight: bold;
+}
+.import-info dt,
+.import-info dd{
+    display: inline-block;
+}
+
+.import-process {
+    background: #fff;
+    border: 1px solid #999;
+    width: 100%;
+    display: none;
+}
+.import-process-status {
+    background-color: rgba(96, 214, 96, 0.45);
+    overflow: hidden;
+    height: 50px;
+}
+.import-process-text {
+    position: absolute;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 47px;
+    width: 80%;
+    text-align: center;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.import-setting .stop,
+.running .import{
+    display: none;
+}
+
+.running .stop{
+    display: inherit;
+}

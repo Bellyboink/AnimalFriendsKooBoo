@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.IEnumerable<AnimalFriends.Integration.Models.News>
+@{
+    Layout = "~/Views/Shared/Site.cshtml";
+    ViewBag.Title = "Settings".Localize();
+}
+
+@section Panel{
+    <ul class="panel">
+        <li>
+            <a href="@Url.Action("Import", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
+                @Html.IconImage("import") @("Import".Localize())</a>
+        </li>
+        <li><a href="@Url.Action("Preview", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))" data-show-on-check="Any" data-command-type="AjaxPost" data-confirm="@("Are you sure you want to delete these items?".Localize())">
+            @Html.IconImage("preview") @("Preview".Localize())</a>
+        </li>
+        <li><a href="@Url.Action("SourceSettings", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
+            @Html.IconImage("setting") @("Source settings".Localize())</a>
+        </li>
+    </ul>
+}
+@{
+    var activeSetting = ViewBag.ActiveImportSetting as Kooboo_CMS.Areas.Integration.Models.ImportSetting;
+}
+@if (activeSetting != null)
+{
+    <div class="import import-settings">
+        @using (Html.BeginForm("UpdateSettings", "IntegrationAdmin"))
+        {
+            <h1 class="title">@ViewBag.Title</h1>
+            <label>Name</label>
+            <input name="name" type="text" value="@activeSetting.Name" />
+            <label>Connectionstring</label>
+            <input name="connectionstring" type="text" value="@activeSetting.ConnectionString" />
+            <label>Databasetable</label>
+            <input name="DatabaseTable" type="text" value="@activeSetting.DatabaseTable" />
+            <label>Koobootable</label>
+            if (ViewBag.Folders != null)
+            {
+                <select name="ContentType">
+                    @foreach (TextFolder folder in (List<TextFolder>) ViewBag.Folders)
+                    {
+                        <option selected="@(activeSetting.ContentType == folder.Name ? true : false)" value="@folder.UUID">@folder</option>
+                    }
+                </select>
+            }
+            <button>Ändra</button>
+            <input type="hidden" name="uuid" value="@activeSetting.UUID"/>
+        }
+    </div>
+}

@@ -1,0 +1,16 @@
+﻿@using Kooboo_CMS.Areas.Integration.Services
+@model Kooboo_CMS.Areas.Integration.Services.ImportProcessModel
+
+@if (Model != null)
+{
+    decimal procent = (decimal)Model.ItemsLeft / (decimal)Model.ItemsTotal * 100;
+    string procentString = string.Format("{0}{1}", (int) procent, "%");
+    <div class="import-process">
+        <div class="import-process-text import-process-text-@Model.UUID">
+            <span>@Model.ItemsLeft / @Model.ItemsTotal @procentString</span>
+        </div>
+        <div class="import-process-status" style="width: @procentString">
+        </div>
+    </div>
+
+}

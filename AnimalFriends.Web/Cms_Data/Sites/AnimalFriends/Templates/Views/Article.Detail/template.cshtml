@@ -1,0 +1,24 @@
+﻿@using Kooboo.CMS.Content.Query;
+@using Kooboo.CMS.Content.Models;
+@{
+ 
+    if (ViewBag.Article != null)
+    {
+        var textContent = (TextContent)ViewBag.Article;
+        var readings = 1;
+        if (textContent["Readings"] != null)
+        {
+            readings = (int)textContent["Readings"] + 1;
+        }
+        Kooboo.CMS.Content.Services.ServiceFactory.TextContentManager.Update(Repository.Current, textContent.GetSchema(),
+   textContent.UUID, "Readings", readings, User.Identity.Name, false);
+
+    }
+ }
+<header>
+    <h1 class="title" @ViewHelper.Edit(ViewBag.Article, "Header")>@(ViewBag.Article.Header ?? "")</h1>
+    <span class="date">@ViewHelper.DateTimeToString(ViewBag.Article.UtcCreationDate, "yyyy-MM-dd")</span>
+</header>
+<section class="content" @ViewHelper.Edit(ViewBag.Article, "Text")>
+    @Html.Raw(ViewBag.Article.Text ?? "")
+</section>

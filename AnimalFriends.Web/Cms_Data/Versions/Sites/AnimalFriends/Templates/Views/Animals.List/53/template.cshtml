@@ -1,0 +1,30 @@
+﻿@using Kooboo.CMS.Search;
+@using Kooboo.CMS.Content.Models;
+<ul  class="list">
+  @if(ViewBag.AnimalList != null){
+    foreach (var item in ViewBag.AnimalList){
+    <li class="@item.AnimalType" @ViewHelper.Edit(item)>
+        <h3 @ViewHelper.Edit(item,"Header")>
+          <a href="@Url.FrontUrl().PageUrl(string.Format("{0}/Detail", Page_Context.Current.PageRequestContext.Page.Name), new { userkey = item.UserKey})">@item.Header</a>
+ 		</h3>
+      	@foreach(var file in ContentHelper.SplitMultiFiles(item.Images))
+		{
+			<img src="@file?width=100" alt=""/>
+		}
+      	<div @ViewHelper.Edit(item,"Text")>
+			@Html.Raw(item.Text)
+      	</div>
+      	@if(!string.IsNullOrEmpty(@item.Phone)){	
+      	<span class="contact contact-phone" @ViewHelper.Edit(item,"Phone")>
+        	@item.Phone  
+      	</span>
+      	}
+      	@if(!string.IsNullOrEmpty(@item.Email)){
+      	<span class="contact contact-email" @ViewHelper.Edit(item,"Email")>
+        	@item.Email 
+      	</span>
+      }
+    </li>
+    }
+  }
+</ul>

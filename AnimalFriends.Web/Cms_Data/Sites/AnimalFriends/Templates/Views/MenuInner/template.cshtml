@@ -1,0 +1,26 @@
+﻿<div class="menu-inner">
+    @foreach (var item in MenuHelper.Top())
+      {    
+          if (item.Navigation.Show && MenuHelper.IsCurrent(item))
+          {
+              <h4 class="menu-header">@item.FullName</h4>
+          }
+      }
+    
+    <ul>
+      @foreach (var item in MenuHelper.Sub()){
+  	    if (item.Navigation.Show){
+  		    <li class ='@(MenuHelper.IsCurrent(item) ? "current" : "")'>@Html.FrontHtml().PageLink(item.LinkText, item.FullName)</li>
+  	    }
+      }
+      @if(MenuHelper.Parent() != null){
+        foreach (var item in MenuHelper.Sibling()){
+            if (item.Navigation.Show)
+            {
+                <li class ='@(MenuHelper.IsCurrent(item) ? "current" : "")'>@Html.FrontHtml().PageLink(item.LinkText, item.FullName)</li>
+            }
+        }
+      }
+    </ul>
+</div>
+

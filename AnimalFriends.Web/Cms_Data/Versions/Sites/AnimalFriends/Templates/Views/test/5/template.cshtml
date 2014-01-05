@@ -1,0 +1,28 @@
+﻿<div class="common-form">
+    <h5 class="title">Add content</h5>
+    <form method="post" action="@Url.FrontUrl().SubmissionUrl("AddAnimal")">
+        @Html.AntiForgeryToken()       
+        @*<input type="hidden" name="SuccessedUrl" value='@Url.FrontUrl().PageUrl("Thankyou")'/>*@
+      <input type="hidden" name="FailedUrl" value='/'/>
+        @*<input type="hidden" name="JsonResult" value='true'/>*@
+        @*<input type="hidden" name="Categories[0].FolderName" value="@ViewBag.category.FolderName" />*@
+        @*<input type="hidden" name="Categories[0].UUID" value="@ViewBag.category.UUID" />*@
+		@*<input type="hidden" name="ParentUUID" value="@ViewBag.Article.UUID" />*@
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="title">Header:</label></th>
+                    <td>
+                        <input type="text" id="title" name="Header" data-val-required="title is required" data-val="true" />
+                        @Html.ValidationMessageForInput("Header")
+                        </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" name="submit" value="submit" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+ 

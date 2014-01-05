@@ -1,0 +1,14 @@
+﻿@if (Model != null)
+{ 
+<div>
+	<h3 class="title" @ViewHelper.Edit(Model,"ConnectionString")>@Html.Raw(Model.ConnectionString ?? "")</h3>
+	<div class="content">
+		<div @ViewHelper.Edit(Model,"Name")>@Html.Raw(Model.Name ?? "")</div>
+		<div @ViewHelper.Edit(Model,"DatabaseTable")>@Html.Raw(Model.DatabaseTable ?? "")</div>
+		<div @ViewHelper.Edit(Model,"ContentTypeFolder")>@Html.Raw(Model.ContentTypeFolder ?? "")</div>
+		<div @ViewHelper.Edit(Model,"MappedFields")>@Html.Raw(Model.MappedFields ?? "")</div>
+		<div @ViewHelper.Edit(Model,"SourceType")>@Html.Raw(Model.SourceType ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Query")>@Html.Raw(Model.Query ?? "")</div>
+	</div>
+</div>
+}

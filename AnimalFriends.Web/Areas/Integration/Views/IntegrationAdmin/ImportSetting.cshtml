@@ -1,0 +1,110 @@
+﻿@using Kooboo_CMS.Areas.Integration.Services
+@model Kooboo_CMS.Areas.Integration.Models.ImportSetting
+@{
+    Layout = "~/Views/Shared/Site.cshtml";
+    ViewBag.Title = "Settings".Localize();
+}
+
+@section Panel{
+    <ul class="panel">
+        <li>
+            <a href="@Url.Action("Import", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
+                @Html.IconImage("import") @("Import".Localize())</a>
+        </li>
+        <li><a href="@Url.Action("Preview", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))" data-show-on-check="Any" data-command-type="AjaxPost" data-confirm="@("Are you sure you want to delete these items?".Localize())">
+            @Html.IconImage("preview") @("Preview".Localize())</a>
+        </li>
+        <li><a href="@Url.Action("EditImportSetting", "IntegrationAdmin", new{ id = Model.UUID})">
+            @Html.IconImage("setting") @("Source settings".Localize())</a>
+        </li>
+    </ul>
+}
+
+
+<div class="import">
+    <h1 class="title">Importsetting: @Model.Name</h1>
+    @{ ViewBag.UUID = Model.UUID;}
+    @Html.Partial("_Connected", Model.MappedFields)
+    <ul class="functions">
+        <li>
+            @{ using(Ajax.BeginForm("AddMappedField", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" })){
+                   <input type="hidden" name="uuid" value="@Model.UUID"/>
+                   <div class="field">
+                       <label>Database</label>
+                       <select name="mappedField.SourceField">
+                           @if (ViewBag.DatabaseTableStructure != null)
+                           {
+                               foreach (var column in ((List<string>)ViewBag.DatabaseTableStructure).OrderBy(a=>a))
+                               {
+                                   <option value="@column">@column</option>
+                               }
+                           }
+                       </select>
+                   </div>
+                   <div class="field">
+                       <label>Kooboo field</label>
+                       @Html.Partial("_Fields")
+                   </div>
+                   <input class="button-function" type="submit" value="Koppla ihop fält" />
+               }
+            }
+        </li>
+        
+        <li>
+            @using (Ajax.BeginForm("AddDefaultField", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" }, new { @class = "panelblock condition-add" }))
+            {
+                <input type="hidden" name="uuid" value="@Model.UUID"/>
+                <div class="field">
+                    <label>Default value</label>
+                    <input name="mappedField.DefaultValue" type="text" />
+                </div>
+                <div class="field">
+                    <label>Kooboo field</label>
+                    @Html.Partial("_Fields")
+                </div>
+                <input class="button-function" type="submit" value="Add default value" />
+            }
+        </li>
+        
+        @*<li>
+            @{ using (Ajax.BeginForm("AddFieldConditions", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "condition" }, new { @class = "panelblock condition-add" }))
+               {
+                   <div class="field">
+                       <label>Databskolumn</label>
+                       <select name="databasecolumn">
+                           @if (ViewBag.DatabaseTableStructure != null)
+                           {
+                               foreach (var column in (List<string>)ViewBag.DatabaseTableStructure)
+                               {
+                                   <option value="@column">@column</option>
+                               }
+                           }
+                       </select>
+                       <select name="condition">
+                           <option value="Same">=</option>
+                           <option value="Bigger">></option>
+                           <option value="Smaller"><</option>
+                       </select>
+                   </div>
+                   <div class="field">
+                       <label>Value</label>
+                       <input name="value" type="text" />
+                   </div>
+                   <input class="button-function" type="submit" value="Lägg till villkor" />
+               }
+            }
+        </li>*@
+    </ul>
+    <div class="output">
+        @if (ViewBag.Objects != null) 
+        {
+            foreach (System.Collections.Specialized.NameValueCollection item in (ViewBag.Objects as List<System.Collections.Specialized.NameValueCollection>))
+            {
+                foreach (var i in item.AllKeys)
+                {
+                    <span>@i</span><span>@item.Get(i)</span><br />
+                }
+            }
+        }
+    </div>
+</div>

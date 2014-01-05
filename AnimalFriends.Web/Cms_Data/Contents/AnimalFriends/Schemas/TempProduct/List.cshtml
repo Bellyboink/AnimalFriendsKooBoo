@@ -1,0 +1,8 @@
+﻿<h3>TempProduct</h3>
+<ul class="list">
+    @foreach (var item in Model)
+      {
+        <li>@Html.FrontHtml().PageLink(item["Identifier"], "TempProduct/detail", new { userKey = item["UserKey"] }, new { @class="title" })
+        </li>
+      }
+</ul>

@@ -1,0 +1,11 @@
+﻿Alex 
+<div class="block list">
+
+<ul  class="list">
+    @foreach (var item in ViewBag.AnimalList){
+    <li>
+        <a class='title' href='@Url.FrontUrl().PageUrl("animals/detail",new { UserKey = item.UserKey})'>@item.Header</a>
+    </li>
+    }
+</ul>
+</div>

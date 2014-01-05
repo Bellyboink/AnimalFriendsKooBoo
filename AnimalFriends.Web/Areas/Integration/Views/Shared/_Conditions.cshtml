@@ -1,0 +1,38 @@
+﻿@model List<Kooboo_CMS.Areas.Integration.Models.ConditionModel>
+@if (Model != null && Model.Count > 0) 
+{
+    <h2>Conditions</h2>
+    <table class="connection">
+        <thead>
+            <tr>
+                <th class="col col-databasecolumn">
+                    Databascolumn
+                </th>
+                <th class="col col-events">
+                    Condition
+                </th>
+                <th class="col col-field">
+                    Value
+                </th>
+                <th class="col col-remove"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var field in Model)
+            {
+            <tr>
+                <td>@field.ColumnName</td>
+                <td class="events">@field.Condition</td>
+                <td>@field.Value</td>
+                <td>
+                    @using (Ajax.BeginForm("RemoveFieldConditions", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "condition" }, new { @id = "conditionform" }))
+                    {
+                        <input name="databasecolumn" type="hidden" value="@field.ColumnName"  /><input name="field" type="hidden" value="@field.Value"  />
+                        <input class="connection-remove" type="submit" value="Remove"/>
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

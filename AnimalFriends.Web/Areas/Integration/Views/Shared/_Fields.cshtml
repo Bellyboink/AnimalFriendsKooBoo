@@ -1,0 +1,12 @@
+﻿@using Kooboo_CMS.Areas.Integration.Services
+@{
+    var dataService = new DataService();
+    var fields = dataService.GetSchemaStructure(Model.ContentTypeFolder);
+}
+
+<select name="mappedField.KoobooField">
+    @foreach (string field in fields)
+    {
+        <option value="@field">@field</option>
+    }
+</select>

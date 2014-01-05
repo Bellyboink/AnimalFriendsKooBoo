@@ -1,0 +1,15 @@
+﻿@if (Model != null)
+{ 
+<div>
+	<h3 class="title" @ViewHelper.Edit(Model,"Header")>@Html.Raw(Model.Header ?? "")</h3>
+	<div class="content">
+		<div @ViewHelper.Edit(Model,"Images")>@Html.Raw(Model.Images ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Text")>@Html.Raw(Model.Text ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Status")>@Html.Raw(Model.Status ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Phone")>@Html.Raw(Model.Phone ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Email")>@Html.Raw(Model.Email ?? "")</div>
+		<div @ViewHelper.Edit(Model,"AnimalType")>@Html.Raw(Model.AnimalType ?? "")</div>
+		<div @ViewHelper.Edit(Model,"ContactPerson")>@Html.Raw(Model.ContactPerson ?? "")</div>
+	</div>
+</div>
+}

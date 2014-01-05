@@ -1,0 +1,7 @@
+﻿@using Kooboo_CMS.Areas.Integration.Models;
+@model List<EventModel>
+
+@foreach (var item in Model)
+{
+    <option value="@item.ID">@item.Name</option>
+}

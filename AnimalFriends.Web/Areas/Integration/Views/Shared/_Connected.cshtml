@@ -1,0 +1,62 @@
+﻿@using Kooboo_CMS.Areas.Integration.Models;
+@model List<MappedFieldModel>
+@if (Model != null) 
+{
+    <table id="connected" class="import-setting">
+        <thead>
+            <tr>
+                <th class="col-databasecolumn">
+                    Sourcefield
+                </th>
+                <th class="col-events">
+                    
+                </th>
+                <th class="col-field">
+                    Kooboofield
+                </th>
+                <th class="col-remove"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 0;}
+            @foreach (var field in Model)
+            {
+                
+                <tr>
+                    <td>
+                        @if (!field.IsDefault)
+                        {
+                            @field.SourceField
+                        }
+                        else
+                        {
+                            <span class="default-value">
+                                @field.DefaultValue
+                            </span>   
+                        }
+                    </td>
+                    @*<td class="events">
+                        @using(Ajax.BeginForm("AddConnectionEvent", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" }, new{ @id = ("connectedeventform" + i.ToString())})){
+                            <input name="field" type="hidden" value="@field.KoobooField"  />
+                            <select class = "event-selector" name="eventToField" onchange="$('@("#connectedeventform" + i.ToString())').submit();">
+                                @Html.Action("GetEvents","IntegrationAdmin")
+                            </select>
+                        }
+                    </td>*@
+                    <td></td>
+                    <td>@field.KoobooField</td>
+                    <td>
+                        @using(Ajax.BeginForm("RemoveMappedField","IntegrationAdmin", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" }, new{ @id = "connectedform"})){
+                            <input name="uuid" type="hidden" value="@ViewBag.UUID"  />
+                            <input name="mappedField.SourceField" type="hidden" value="@field.SourceField"  />
+                            <input name="mappedField.KoobooField" type="hidden" value="@field.KoobooField"  />
+                            
+                            <input class="connection-remove" type="submit" value="Remove"/>
+                        }
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}

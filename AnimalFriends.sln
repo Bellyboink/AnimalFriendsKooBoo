@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFriends.Web", "AnimalFriends.Web\AnimalFriends.Web.csproj", "{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EmailValidator|Any CPU = EmailValidator|Any CPU
+		Publish|Any CPU = Publish|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.EmailValidator|Any CPU.ActiveCfg = Release|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.EmailValidator|Any CPU.Build.0 = Release|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Publish|Any CPU.ActiveCfg = Release|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Publish|Any CPU.Build.0 = Release|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

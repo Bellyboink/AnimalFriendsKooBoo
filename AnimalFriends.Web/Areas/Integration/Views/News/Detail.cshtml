@@ -1,0 +1,10 @@
+﻿@model AnimalFriends.Integration.Models.News
+@{
+    Layout = "~/Areas/" + AnimalFriends.Integration.SampleAreaRegistration.ModuleName + "/Views/Shared/Front.cshtml";
+}
+<article class="block article">
+    <header>
+        <h2 class="title">@Model.Title</h2>
+    </header>
+    <section class="content">@Model.Body</section>
+</article>

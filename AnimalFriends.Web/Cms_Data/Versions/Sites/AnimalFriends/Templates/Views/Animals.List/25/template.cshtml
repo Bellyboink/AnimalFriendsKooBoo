@@ -1,0 +1,21 @@
+﻿<ul  class="list">
+  @if(ViewBag.AnimalList != null){
+    foreach (var item in ViewBag.AnimalList){
+    <li>
+        <h3>
+            <a class='title' href='@Url.FrontUrl().PageUrl("Animals/Detail",new { UserKey = item.UserKey})'>@item.Header</a>
+ 		</h3>
+      	@foreach(var file in ContentHelper.SplitMultiFiles(item.Images))
+		{
+			<img src="@file?width=100" alt=""/>
+		}
+		<div>
+          @Html.Raw(item.Text)
+      	</div>
+      	<span class="contact contact-phone">
+        	@item.Phone  
+      	</span>
+    </li>
+    }
+  }
+</ul>

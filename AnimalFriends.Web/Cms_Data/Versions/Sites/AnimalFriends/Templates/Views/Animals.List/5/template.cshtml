@@ -1,0 +1,11 @@
+﻿Alex 
+<div class="block list">
+  @foreach (var item in ViewBag.Animals){
+  <div class="item" @ViewHelper.Edit(item)>
+      <h6 class="title"><a href='@Url.FrontUrl().PageUrl("Animals/Detail", new { UserKey = item.UserKey})'@ViewHelper.Edit(item,"Header") >@item.Title</a></h6>
+      <span class="date">@ViewHelper.DateTimeToString(item.UtcCreationDate,"yyyy-MM-dd")</span>
+      <p @ViewHelper.Edit(item,"Summary")>@Html.Raw(item.Summary)</p>
+      <a class="comment" href="@Url.FrontUrl().PageUrl("Animals/Detail", new { UserKey = item.UserKey})#comments">@(((Kooboo.CMS.Content.Models.TextContent)item).Children("Comment").Count()) Comments</a>
+  </div>
+  }
+</div>

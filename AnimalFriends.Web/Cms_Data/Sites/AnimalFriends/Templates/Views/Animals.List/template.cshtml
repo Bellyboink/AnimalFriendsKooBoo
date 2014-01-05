@@ -1,0 +1,48 @@
+﻿@using Kooboo.CMS.Search;
+@using Kooboo.CMS.Content.Models;
+<ul  class="list list-animals">
+  @if(ViewBag.AnimalList != null){
+    foreach (var item in ViewBag.AnimalList){
+    <li class="item-animal" @ViewHelper.Edit(item)>
+        <a href="@Url.FrontUrl().PageUrl(string.Format("{0}/Detail", Page_Context.Current.PageRequestContext.Page.Name), new { userkey = item.UserKey})">
+            <h3 class="item-header item-header-animal item-header-animal-@item.AnimalType" @ViewHelper.Edit(item,"Header")>@item.Header</h3>
+        </a>
+        <div class="item-info">
+            <em class="contact contact-date">
+                Publiserad @String.Format("{0:D}", item.UtcCreationDate)
+            </em>
+            <em class="contact-person">  
+			    Kontakta
+                @if(!string.IsNullOrEmpty(@item.ContactPerson)){	
+                    <span class="" @ViewHelper.Edit(item,"ContactPerson")>
+                        @item.ContactPerson  
+                    </span>
+                }
+      	    </em>
+            @if(!string.IsNullOrEmpty(@item.Phone)){	
+      	    <em class="contact contact-phone" @ViewHelper.Edit(item,"Phone")>
+        	    @item.Phone  
+      	    </em>
+      	    }
+      	    @if(!string.IsNullOrEmpty(@item.Email)){
+      	    <em class="contact contact-email" @ViewHelper.Edit(item,"Email")>
+        	    @item.Email 
+      	    </em>
+            }
+        </div>
+      	<ul class="item-images">
+            @foreach(var file in ContentHelper.SplitMultiFiles(item.Images))
+		{
+        	<li>
+          		<img src="@file?width=400" alt=""/>	
+          	</li>
+		}
+      	</ul>	
+      
+      	<div @ViewHelper.Edit(item,"Text")>
+			@Html.Raw(item.Text)
+      	</div>
+    </li>
+    }
+  }
+</ul>

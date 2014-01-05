@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLastAction xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kooboo.CMS.Search.Models">
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2013-12-20T15:18:03.8864415Z</UtcActionDate>
+	</LastAction>
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2013-12-20T15:17:48.0304415Z</UtcActionDate>
+	</LastAction>
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2013-12-20T15:16:01.5844415Z</UtcActionDate>
+	</LastAction>
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2013-12-20T14:33:06.1714415Z</UtcActionDate>
+	</LastAction>
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2013-12-20T14:32:55.7684415Z</UtcActionDate>
+	</LastAction>
+</ArrayOfLastAction>

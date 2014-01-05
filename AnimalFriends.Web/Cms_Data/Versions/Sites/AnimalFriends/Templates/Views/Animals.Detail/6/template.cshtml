@@ -1,0 +1,9 @@
+﻿
+<h3 class="title">@Html.Raw(ViewBag.AnimalDetail.Header ?? "")</h3>
+@foreach(var file in ContentHelper.SplitMultiFiles(ViewBag.Article.Images))
+{
+	<img src="@file" alt=""/>
+}
+<div>
+	@Html.Raw(ViewBag.AnimalDetail.Text ?? "")
+</div>

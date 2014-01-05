@@ -1,0 +1,14 @@
+﻿<footer id="footer">
+  	<ul>
+        @foreach (var item in ViewBag.FooterItems){
+        <li class="footer-item">
+            <h4>
+              @item.Header
+			</h4>
+          	<div>
+              @Html.Raw(item.Text)
+          </div>
+        </li>
+        }
+    </ul>
+</footer>

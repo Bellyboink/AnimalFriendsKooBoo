@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Cryptorgaphy</id>
+    <version>0.0.6</version>
+    <title>Rijndael cryptography</title>
+    <authors>Andrew Kovalenko</authors>
+    <owners>Andrew Kovalenko</owners>
+    <projectUrl>https://github.com/AndrewKovalenko/Cryptography</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Class, which allows you to encrypt and decrypt data using Rijndael cryptography algorithm</description>
+    <releaseNotes />
+    <copyright>TorinSoft Inc</copyright>
+    <language />
+    <tags>rijndael cryptography encript decript</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+    <references>
+      <reference file="Configuration.dll" />
+      <reference file="Cryptography.dll" />
+    </references>
+  </metadata>
+</package>

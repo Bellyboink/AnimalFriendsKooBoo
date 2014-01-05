@@ -1,0 +1,35 @@
+﻿@model Dictionary<string,string>
+@if (Model != null && Model.Count > 0) 
+{
+    <h2>Default values</h2>
+    <table class="connection">
+        <thead>
+            <tr>
+                <th class="col-databasecolumn">
+                    KooBoo field
+                </th>
+                <th class="col-events"></th>
+                <th class="col-field">
+                    Default value
+                </th>
+                <th class="col-remove"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var field in Model)
+            {
+            <tr>
+                <td>@field.Key</td>
+                <td></td>
+                <td>@field.Value</td>
+                <td>
+                    @using(Ajax.BeginForm("RemoveFieldDefaults", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "defaults" }, new{ @id = "defaultsform"})){
+                        <input name="field" type="hidden" value="@field.Key"  />
+                        <input class="connection-remove" type="submit" value="Remove"/>
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

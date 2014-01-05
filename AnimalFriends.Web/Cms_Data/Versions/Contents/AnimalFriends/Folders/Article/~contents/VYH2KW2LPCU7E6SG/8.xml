@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VersionInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kooboo.CMS.Content.Versioning">
+	<CommitUser>admin</CommitUser>
+	<UtcCommitDate>2013-08-21T13:37:00.8860352Z</UtcCommitDate>
+	<TextContent xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>UserKey</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">VYH2KW2LPCU7E6SG</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Id</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">104</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>UtcCreationDate</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:dateTime">2013-08-21T14:52:11.427+02:00</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>UtcLastModificationDate</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:dateTime">2013-08-21T13:37:00.8860352Z</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>UUID</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">VYH2KW2LPCU7E6SG</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Repository</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">AnimalFriends</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>FolderName</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">Article</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Published</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:boolean">true</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>OriginalUUID</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>SchemaName</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">Article</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>ParentFolder</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>ParentUUID</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>UserId</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">admin</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>OriginalRepository</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>OriginalFolder</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>IsLocalized</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Sequence</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">1</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Summary</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">Processen med att tämja en vuxen skygg katt är mycket längre och svårare än att arbeta med kattungar. Den kan ta några månader eller år. Är du verkligen beredd för det? Katten kommer kanske aldrig att bli tam eller klappbar.Tar du ansvar för en skygg katt måste du vara beredd att du kanske aldrig kan omplacera katten och du måste kunna ta ditt ansvar för katten så länge den lever. Du kommer inte att hitta en plats på et katthem om du ger upp och du får aldrig släppa ut en katt eller avliva den för att du inte klarar uppgiften. Så tänk noga på vad du klarar av innan du tar en skygg vuxen katt.</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Description</d2p1:Key>
+			<d2p1:Value i:nil="true" />
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Readings</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">5</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Text</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">&lt;p&gt;&lt;img src="/Cms_Data/Contents/AnimalFriends/Media/Artiklar/m_2011-6-18_17-11-50.jpg" alt="m_2011-6-18_17-11-50.jpg" width="320" height="320" /&gt;&lt;/p&gt;
+&lt;p&gt;Processen med att t&amp;auml;mja en vuxen skygg katt &amp;auml;r mycket l&amp;auml;ngre och sv&amp;aring;rare &amp;auml;n att arbeta med kattungar. Den kan ta n&amp;aring;gra m&amp;aring;nader eller &amp;aring;r. &amp;Auml;r du verkligen beredd f&amp;ouml;r det? Katten kommer kanske aldrig att bli tam eller klappbar.&lt;/p&gt;
+&lt;p&gt;Tar du ansvar f&amp;ouml;r en skygg katt m&amp;aring;ste du vara beredd att du kanske aldrig kan omplacera katten och du m&amp;aring;ste kunna ta ditt ansvar f&amp;ouml;r katten s&amp;aring; l&amp;auml;nge den lever. Du kommer inte att hitta en plats p&amp;aring; et katthem om du ger upp och du f&amp;aring;r aldrig sl&amp;auml;ppa ut en katt eller avliva den f&amp;ouml;r att du inte klarar uppgiften. S&amp;aring; t&amp;auml;nk noga p&amp;aring; vad du klarar av innan du tar en skygg vuxen katt.&lt;/p&gt;
+&lt;p&gt;Jag skulle absolut inte rekommendera att ta in en skygg vuxen katt om man inte har erfarenhet, intresse och support f&amp;ouml;r skygga katter. En r&amp;auml;dd katt kan skada sig sj&amp;auml;lv och dig n&amp;auml;r den f&amp;aring;r panik. En &amp;rdquo;ilsken&amp;rdquo; panikkatt kan ge stora skador.&lt;/p&gt;
+&lt;p&gt;Oftast vet man ingenting om kattens bakgrund. &amp;Auml;r den f&amp;ouml;dd ute eller inne? Har den haft n&amp;aring;gra kontakter med m&amp;auml;nniskor och vilka? Har de blivit matade n&amp;aring;gonstans eller blivit bortsparkad av n&amp;aring;gon m&amp;auml;nniska? &amp;Auml;ven katter som har haft ett hem n&amp;aring;gon g&amp;aring;ng kan bli aggressiva och r&amp;auml;dda f&amp;ouml;r m&amp;auml;nniskan. Livet f&amp;ouml;r heml&amp;ouml;sa katter &amp;auml;r stenh&amp;aring;rt och det finns m&amp;aring;nga faror. M&amp;auml;nniskor, bilar, djur. En heml&amp;ouml;s katt f&amp;ouml;rs&amp;ouml;ker bli en &amp;ouml;verlevare med alla reflexer och instinkter som t.ex. ett rovdjur har.&lt;/p&gt;
+&lt;p&gt;Om du nu har best&amp;auml;mt dig f&amp;ouml;r att ta in en skygg katt kr&amp;auml;vs det f&amp;ouml;rberedelser. Se till att ha en bra veterin&amp;auml;r som &amp;auml;r van att handskas med skygga katter. Kolla om du kan l&amp;aring;na en kl&amp;auml;mbur f&amp;ouml;r l&amp;auml;ttare hantering. Det b&amp;auml;sta &amp;auml;r alltid att en inf&amp;aring;ngad katt kan komma direkt till en veterin&amp;auml;r f&amp;ouml;r unders&amp;ouml;kning, kastrering, vaccinering, id-m&amp;auml;rkning, avmaskning och skabbehandling. Senare blir det mycket sv&amp;aring;rare att f&amp;aring; in katten i en transportbur igen.&lt;br /&gt;Ha din katt i ett begr&amp;auml;nsat utrymme, sl&amp;auml;pp den aldrig s&amp;aring; att den kan g&amp;ouml;mma sig i hela l&amp;auml;genheten eller huset. Kolla noga att det inte finns otillg&amp;auml;ngliga g&amp;ouml;mst&amp;auml;llen som luckor i panelen eller h&amp;aring;l i garderoben. En r&amp;auml;dd katt kan kl&amp;auml;mma in sig &amp;ouml;verallt. Jag fick rycka loss hela diskb&amp;auml;nken n&amp;auml;r en katt kr&amp;ouml;p in genom h&amp;aring;let d&amp;auml;r avloppsr&amp;ouml;ret f&amp;ouml;rsvinner och jag inte ville ha en massa bajs och kiss d&amp;auml;r. Ta ut allt on&amp;ouml;digt fr&amp;aring;n kattens rum. F&amp;ouml;r en skygg katt &amp;auml;r det irriterande med en massa nya m&amp;ouml;bler och saker. Skaffa leksaker (ibland vill t.o.m. en vuxen katt leka), kl&amp;ouml;sbr&amp;auml;dor och g&amp;auml;rna en lektunnel f&amp;ouml;r att g&amp;ouml;mma sig.&lt;/p&gt;
+&lt;p&gt;S&amp;auml;kra rummet genom att kolla f&amp;ouml;nsterl&amp;aring;s, ventilations&amp;ouml;ppningar och h&amp;auml;ng g&amp;auml;rna en lapp p&amp;aring; d&amp;ouml;rren sa att alla som g&amp;aring;r in d&amp;auml;r &amp;ouml;ppnar d&amp;ouml;rren f&amp;ouml;rsiktigt.&lt;/p&gt;
+&lt;p&gt;Men en skygg katt beh&amp;ouml;ver egna g&amp;ouml;mst&amp;auml;llen. Inred en plats eller flera under s&amp;auml;ngen, bakom soffan osv. L&amp;auml;gg n&amp;aring;got anv&amp;auml;nt plagg fr&amp;aring;n dig i g&amp;ouml;mst&amp;auml;llet s&amp;aring; att katten kan v&amp;auml;nja sig vid din doft. N&amp;auml;rma dig inte kattens g&amp;ouml;mst&amp;auml;lle om det inte &amp;auml;r absolut n&amp;ouml;dv&amp;auml;ndigt. Det m&amp;aring;ste finnas en plats f&amp;ouml;r katten d&amp;auml;r den kan slappna av utan att k&amp;auml;nna sig tr&amp;auml;ngd av en m&amp;auml;nniska. En skygg katt ska alltid komma till dig och inte du till katten.&lt;/p&gt;
+&lt;p&gt;Begr&amp;auml;nsa dina bes&amp;ouml;k i kattens rum de f&amp;ouml;rsta dagarna genom att bara st&amp;auml;da l&amp;aring;dan och mata katten. L&amp;aring;t den utforska rummet sj&amp;auml;lv.&lt;/p&gt;
+&lt;p&gt;Sedan kan du b&amp;ouml;rja kontaktfasen. Var i kattens n&amp;auml;rhet s&amp;aring; mycket som m&amp;ouml;jligt men ta ingen direkt kontakt med katten. St&amp;auml;ll din TV eller dator i rummet, prata eller nynna hela tiden med lugn r&amp;ouml;st. &amp;Auml;r du inte inne kan TV:n eller radion vara p&amp;aring;, med l&amp;aring;g volym, g&amp;auml;rna pratkanaler.&lt;/p&gt;
+&lt;p&gt;Ha flera kattl&amp;aring;dor i rummet, t&amp;auml;ckt eller &amp;ouml;ppet och prova olika str&amp;ouml;. En del katter som har levt i staden &amp;auml;r inte vana att krafsa ner sitt bajs, dels f&amp;ouml;r att de bara har h&amp;aring;rda ytor som toalett men ocks&amp;aring; som territoriell markering f&amp;ouml;r andra katter. Om katten bajsar p&amp;aring; fel st&amp;auml;lle, ta inte bort det utan l&amp;auml;gg det i kattl&amp;aring;dan. St&amp;auml;da inte f&amp;ouml;r mycket d&amp;auml;r eller anv&amp;auml;nd f&amp;ouml;r mycket parfymerat str&amp;ouml;. En katt-toalett m&amp;aring;ste lukta gott f&amp;ouml;r en katt. Ibland &amp;auml;r det n&amp;ouml;dv&amp;auml;ndigt att anv&amp;auml;nda tr&amp;auml;dg&amp;aring;rdsjord f&amp;ouml;rst. L&amp;aring;t inte en massa mjuka kuddar eller s&amp;auml;ngkl&amp;auml;der ligga framme innan katten blivit rumsren. T&amp;auml;ck &amp;ouml;ver k&amp;auml;nsliga m&amp;ouml;bler, s&amp;auml;ngen, o.s.v., med plast eller liknande.&lt;/p&gt;
+&lt;p&gt;G&amp;ouml;r dig ofarlig f&amp;ouml;r katten. Undvik snabba r&amp;ouml;relser, sitt g&amp;auml;rna p&amp;aring; golvet. Spela katt sj&amp;auml;lv. Stirra aldrig p&amp;aring; den. Titta ner eller &amp;aring;t sidan. Om du tittar katten i &amp;ouml;gonen, blinka l&amp;aring;ngsamt hela tiden men v&amp;auml;nd helst bort ansiktet. Mima att du tv&amp;auml;ttar dig i ansiktet med h&amp;auml;nderna som katten g&amp;ouml;r, g&amp;auml;spa, rulla ihop dig, var n&amp;auml;ra golvet. Smacka n&amp;auml;r du &amp;auml;ter i kattens n&amp;auml;rhet. L&amp;aring;t katten bli nyfiken p&amp;aring; dig.&lt;/p&gt;
+&lt;p&gt;B&amp;ouml;rja mer och mer att muta katten med godbitar men str&amp;auml;ck aldrig ut handen. En hand &amp;auml;r alltid farligt och utstr&amp;auml;ckta fingrar p&amp;aring;minner om klor.&lt;br /&gt;Prata mycket, lek med fj&amp;auml;dervippor, laserpenna eller liknande och var gener&amp;ouml;s med godis.&lt;br /&gt;Den h&amp;auml;r fasen &amp;auml;r nog den l&amp;auml;ngsta och viktigaste f&amp;ouml;r att f&amp;aring; en katt tam. N&amp;auml;r du k&amp;auml;nner att katten har f&amp;aring;tt f&amp;ouml;rtroende f&amp;ouml;r dig kan du b&amp;ouml;rja med n&amp;auml;sta fas &amp;ndash; kroppskontaktfasen.&lt;/p&gt;
+&lt;p&gt;Ha dina h&amp;auml;nder knutna i n&amp;auml;rheten av katten. Testa med handskar p&amp;aring;. En del katter &amp;auml;r mindre r&amp;auml;dda f&amp;ouml;r handskar &amp;auml;n f&amp;ouml;r en synlig hand. Anv&amp;auml;nd l&amp;aring;nga m&amp;aring;larpenslar, fj&amp;auml;dervippa eller en hembyggd pinne med en bit mjuk flanell lindad kring toppen och n&amp;auml;rma dig f&amp;ouml;rsiktigt kattens kropp. L&amp;auml;mna den d&amp;auml;r allt l&amp;auml;ngre f&amp;ouml;r att sedan sakta flytta den l&amp;auml;ngre bort igen. Om du flyttar f&amp;ouml;r fort kommer katten troligen att sl&amp;aring; till p&amp;aring; den instinktivt. Syftet &amp;auml;r att r&amp;ouml;ra kattens p&amp;auml;ls utan att reagera h&amp;aring;rt.&lt;br /&gt;B&amp;ouml;rja att r&amp;ouml;ra den p&amp;aring; huvud och ner mot nacken. Undvik att vidr&amp;ouml;ra kattens ben och mage. N&amp;auml;rma dig katten fr&amp;aring;n sidan, aldrig bakifr&amp;aring;n. Allt detta tar mycket tid och t&amp;aring;lamod. Alltid utvecklas l&amp;aring;ngsamt och forts&amp;auml;tt prata. Var uppm&amp;auml;rksam p&amp;aring; varje tecken av problem (defensiv aggression) &amp;ndash; platta &amp;ouml;ron, vidgade pupiller, l&amp;aring;gt morrande, svansf&amp;ouml;ring, p&amp;auml;lsen eller i extrema fall kan katten trycka hela kroppen mot golvet och tappa urinbl&amp;aring;s-/tarmkontroll eftersom den k&amp;auml;nner sig er&amp;ouml;vrad. M&amp;aring;nga katter, &amp;auml;ven tama husdjur, kissar i f&amp;ouml;rskr&amp;auml;ckelse. Om detta h&amp;auml;nder, backa till en punkt d&amp;auml;r katten var f&amp;ouml;r ett par dagar sedan innan du f&amp;ouml;rs&amp;ouml;ker n&amp;auml;rma dig igen.&lt;br /&gt;Ha fasta rutiner omkring katten annars blir den os&amp;auml;ker och d&amp;auml;rmed aggressiv.&lt;/p&gt;
+&lt;p&gt;Den b&amp;auml;sta hj&amp;auml;lpen du kan f&amp;aring; f&amp;ouml;r en skygg katt &amp;auml;r genom dina egna tama katter. En katt iakttar allt, framf&amp;ouml;r allt hur andra katter beter sig. Klappa dina katter synligt f&amp;ouml;r den skygga katten och prata samtidigt mycket.&lt;/p&gt;
+&lt;p&gt;Det h&amp;auml;r &amp;auml;r ingen vetenskaplig avhandling men handlar om mina erfarenheter och vad jag l&amp;auml;rt mig.&lt;br /&gt;(kopierat fr&amp;aring;n Evas Katthem)&lt;/p&gt;</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>Header</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">Skygg katt hemma (del 2)</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+		<d2p1:KeyValueOfstringanyType>
+			<d2p1:Key>___EnableVersion___</d2p1:Key>
+			<d2p1:Value xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:boolean">true</d2p1:Value>
+		</d2p1:KeyValueOfstringanyType>
+	</TextContent>
+	<Categories>
+		<Category>
+			<FolderName>Category</FolderName>
+			<Contents>
+				<CategoryContent>
+					<UUID>CARJ5DJN7MTPB3SP</UUID>
+					<DisplayName>Katt</DisplayName>
+				</CategoryContent>
+			</Contents>
+		</Category>
+	</Categories>
+</VersionInfo>

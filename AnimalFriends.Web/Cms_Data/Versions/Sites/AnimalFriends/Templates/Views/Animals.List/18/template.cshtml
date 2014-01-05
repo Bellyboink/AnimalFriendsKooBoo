@@ -1,0 +1,15 @@
+﻿Alex 
+<div class="block list">
+
+<ul  class="list">
+    @foreach (var item in ViewBag.AnimalList){
+    <li>
+        <a class='title' href='@Url.FrontUrl().PageUrl("Animals/Detail",new { UserKey = item.UserKey})'>@item.Header</a>
+      	@foreach(var file in ContentHelper.SplitMultiFiles(item.Images))
+		{
+			<img src="@file?width=100" alt=""/>
+		}
+    </li>
+    }
+</ul>
+</div>

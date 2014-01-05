@@ -1,0 +1,45 @@
+﻿@using Kooboo_CMS.Areas.Integration.Models;
+@model List<ImportSetting>
+@if (Model != null)
+{
+    <table class="import-setting">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th class="col-func"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ImportSetting setting in Model)
+            {
+                <tr>
+                    <td><span class="more">@setting.SourceType</span></td>
+                    <td>
+                        @Html.ActionLink(setting.Name, "ImportSetting", "IntegrationAdmin",new{ id = setting.UUID, siteName = "AnimalFriends"}, new{@class=(setting.IsActive ? "active" : "")}) 
+                    </td>
+                    <td>
+                        <div class="@(setting.IsRunning() ? "running" : "not-running")">
+                            @using (Html.BeginForm("Import", "IntegrationAdmin", FormMethod.Post, new{ @class = "import"}))
+                            {
+                                <input name="uuid" type="hidden" value="@setting.UUID" />
+                                <button>Run...</button>
+                            }
+                            @using (Html.BeginForm("StopImport", "IntegrationAdmin", FormMethod.Post, new { @class = "stop" }))
+                            {
+                                <input name="uuid" type="hidden" value="@setting.UUID" />
+                                <button>Stop...</button>
+                            }
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input class="import-process-uuid" name="uuid" type="hidden" value="@setting.UUID" />
+                        @Html.Action("GetImportProcess","IntegrationAdmin",new{ uuid = setting.UUID})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
