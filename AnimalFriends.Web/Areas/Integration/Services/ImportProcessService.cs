@@ -82,7 +82,6 @@ namespace Kooboo_CMS.Areas.Integration.Services
                     this.StartImport(importSetting.UUID);
             }
         }
-
     }
 
     public class ImportProcessModel
