@@ -7,10 +7,12 @@
 // 
 #endregion
 
+using System.Threading;
 using System.Web.Mvc;
 using System.IO;
 using Kooboo;
 using Kooboo.Web.Mvc;
+using Kooboo_CMS.Areas.Integration.Services;
 
 namespace AnimalFriends.Integration
 {
@@ -45,6 +47,8 @@ namespace AnimalFriends.Integration
             {
                 Kooboo.Web.Mvc.WebResourceLoader.ConfigurationManager.RegisterSection(AreaName, resourceFile);
             }
+            var importProcessService = new ImportProcessService();
+            importProcessService.StartAllIntegrations();
         }
     }
 }

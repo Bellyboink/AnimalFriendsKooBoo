@@ -58,6 +58,31 @@ namespace Kooboo_CMS.Areas.Integration.Services
             var cache = MemoryCache.Default;
             cache.Set(key, threads, new DateTimeOffset(DateTime.Now.AddMinutes(200)));
         }
+
+        public void StartImport(string uuid)
+        {
+            var threads = this.GetThreads();
+            var service = new DataService();
+            var process = new ImportProcessModel(uuid, 1, 2, true);
+            this.SetProcess(process);
+            var importThread = new Thread(() => service.Import(uuid));
+            importThread.Start();
+            threads.Add(uuid, importThread);
+            this.SetThreads(threads);
+        }
+
+        public void StartAllIntegrations()
+        {
+            // Loop all import tasks.
+            var service = new ImportSettingsService();
+            var importSettings = service.GetAll();
+            foreach (var importSetting in importSettings)
+            {
+                if(importSetting.RunOnApplicationStartup)
+                    this.StartImport(importSetting.UUID);
+            }
+        }
+
     }
 
     public class ImportProcessModel

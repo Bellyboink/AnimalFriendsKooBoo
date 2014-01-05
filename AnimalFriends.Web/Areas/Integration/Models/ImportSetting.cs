@@ -11,11 +11,6 @@ namespace Kooboo_CMS.Areas.Integration.Models
     {
         private ImportSettingsService _importService { get; set; }
 
-        public ImportSetting()
-        {
-            _importService = new ImportSettingsService();
-        }
-
         public SourceTypeEnum SourceType { get; set; }
         public string UUID { get; set; }
         public string Name { get; set; }
@@ -27,6 +22,12 @@ namespace Kooboo_CMS.Areas.Integration.Models
         public List<MappedFieldModel> MappedFields { get; set; }
 
         public bool IsActive { get; set; }
+        public bool RunOnApplicationStartup { get; set; }
+
+        public ImportSetting()
+        {
+            _importService = new ImportSettingsService();
+        }
 
         public ImportSetting Populate(TextContent setting)
         {

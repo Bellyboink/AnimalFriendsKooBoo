@@ -71,15 +71,8 @@ namespace AnimalFriends.Integration.Controllers
 
         public ActionResult Import(string uuid)
         {
-            var importProcessService = new ImportProcessService();
-            var threads = importProcessService.GetThreads();
-            var service = new DataService();
-            var process = new ImportProcessModel(uuid, 1, 2, true);
-            importProcessService.SetProcess(process);
-            var importThread = new Thread(() => service.Import(uuid));
-            importThread.Start();
-            threads.Add(uuid, importThread);
-            importProcessService.SetThreads(threads);
+            var service = new ImportProcessService();
+            service.StartImport(uuid);
             
             return RedirectToAction("Index");
         }
