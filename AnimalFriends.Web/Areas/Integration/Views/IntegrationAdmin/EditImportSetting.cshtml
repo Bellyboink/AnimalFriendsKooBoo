@@ -25,41 +25,62 @@
     @if (Model != null)
     {
         <div class="import-settings">
-            @using (Html.BeginForm("UpdateSettings", "IntegrationAdmin"))
+            @using (Html.BeginForm("UpdateSetting", "IntegrationAdmin", FormMethod.Post))
             {
                 <h1 class="title">@ViewBag.Title</h1>
-                <label>Sourcetype</label>
-                <select name="importSetting.SourceType">
-                    <option selected="@(Model.SourceType == SourceTypeEnum.None ? true : false)" value="@((int)SourceTypeEnum.None)">@SourceTypeEnum.None</option>
-                    <option selected="@(Model.SourceType == SourceTypeEnum.SQL ? true : false)" value="@((int)SourceTypeEnum.SQL)">@SourceTypeEnum.SQL</option>
-                    <option selected="@(Model.SourceType == SourceTypeEnum.SQLQUERY ? true : false)" value="@((int)SourceTypeEnum.SQLQUERY)">@SourceTypeEnum.SQLQUERY</option>
-                    <option selected="@(Model.SourceType == SourceTypeEnum.XML ? true : false)" value="@((int)SourceTypeEnum.XML)">@SourceTypeEnum.XML</option>
-                </select>
-                <label>Name</label>
-                <input name="importSetting.Name" type="text" value="@Model.Name" />
-                <label>Connectionstring</label>
-                <input name="importSetting.Connectionstring" type="text" value="@Model.ConnectionString" />
-                if (Model.SourceType == SourceTypeEnum.SQL)
-                 {
-                     <label>SQL Table</label>
-                     <input name="importSetting.DatabaseTable" type="text" value="@Model.DatabaseTable" />
-                 }
-                 else if (Model.SourceType == SourceTypeEnum.SQLQUERY)
-                 {
-                    <label>SQL Query</label>
-                    <textarea name="importSetting.Query">@Model.Query</textarea>
-                 }
-                <label>Kooboo Content folder</label>
-                if (ViewBag.Folders != null)
-                {
-                    <select name="importSetting.ContentTypeFolder">
-                        @foreach (var folder in (List<TextFolder>)ViewBag.Folders)
-                        {
-                            <option selected="@(Model.ContentTypeFolder == folder.Name ? true : false)" value="@folder.Name">@folder.Name</option>
-                        }
+                <p class="form-item">
+                    <label>Name</label>
+                    <input name="importSetting.Name" type="text" value="@Model.Name" />
+                </p>
+                <p class="form-item">
+                    @Html.CheckBox("importSetting.Enabled", Model.Enabled, new {@id = "Enabled"})<label for="Enabled">Enabled</label>
+                </p>
+                <p class="form-item">
+                    @Html.CheckBox("importSetting.RunOnApplicationStartup", Model.RunOnApplicationStartup, new {@id = "RunOnApplicationStartup"})<label for="RunOnApplicationStartup">RunOnApplicationStartup</label>
+                </p>
+                <p class="form-item">
+                    <label>Repeatinterval in minutes</label>
+                    <input name="importSetting.RepeatIntervalInMinutes" type="number" value="@Model.RepeatIntervalInMinutes" />
+                </p>
+                <p class="form-item">
+                    <label>Sourcetype</label>
+                    <select name="importSetting.SourceType">
+                        <option selected="@(Model.SourceType == SourceTypeEnum.None ? true : false)" value="@((int)SourceTypeEnum.None)">@SourceTypeEnum.None</option>
+                        <option selected="@(Model.SourceType == SourceTypeEnum.SQL ? true : false)" value="@((int)SourceTypeEnum.SQL)">@SourceTypeEnum.SQL</option>
+                        <option selected="@(Model.SourceType == SourceTypeEnum.SQLQUERY ? true : false)" value="@((int)SourceTypeEnum.SQLQUERY)">@SourceTypeEnum.SQLQUERY</option>
+                        <option selected="@(Model.SourceType == SourceTypeEnum.XML ? true : false)" value="@((int)SourceTypeEnum.XML)">@SourceTypeEnum.XML</option>
                     </select>
-                }
-                <button>Ändra</button>
+                </p>
+                
+                <p class="form-item">
+                    <label>Connectionstring</label>
+                    <input name="importSetting.Connectionstring" type="text" value="@Model.ConnectionString" />
+                </p>
+                <p class="form-item">
+                    @if (Model.SourceType == SourceTypeEnum.SQL)
+                     {
+                         <label>SQL Table</label>
+                         <input name="importSetting.DatabaseTable" type="text" value="@Model.DatabaseTable" />
+                     }
+                     else if (Model.SourceType == SourceTypeEnum.SQLQUERY)
+                     {
+                        <label>SQL Query</label>
+                        <textarea name="importSetting.Query">@Model.Query</textarea>
+                     }
+                </p>
+                <p class="form-item">
+                    <label>Kooboo Content folder</label>
+                    @if (ViewBag.Folders != null)
+                    {
+                        <select name="importSetting.ContentTypeFolder">
+                            @foreach (var folder in (List<TextFolder>)ViewBag.Folders)
+                            {
+                                <option selected="@(Model.ContentTypeFolder == folder.Name ? true : false)" value="@folder.Name">@folder.Name</option>
+                            }
+                        </select>
+                    }
+                </p>
+                <button name="action" value="edit">Ändra</button><button name="action" value="delete">Delete</button>
                 <input type="hidden" name="importSetting.UUID" value="@Model.UUID"/>
             }
         </div>

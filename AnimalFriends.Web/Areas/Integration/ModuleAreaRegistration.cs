@@ -10,6 +10,7 @@
 using System.Threading;
 using System.Web.Mvc;
 using System.IO;
+using System.Web.Routing;
 using Kooboo;
 using Kooboo.Web.Mvc;
 using Kooboo_CMS.Areas.Integration.Services;
@@ -47,8 +48,10 @@ namespace AnimalFriends.Integration
             {
                 Kooboo.Web.Mvc.WebResourceLoader.ConfigurationManager.RegisterSection(AreaName, resourceFile);
             }
+            
             var importProcessService = new ImportProcessService();
             importProcessService.StartAllIntegrations();
+            
         }
     }
 }

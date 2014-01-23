@@ -15,6 +15,7 @@ using Kooboo.CMS.Content.Services;
 using Kooboo.CMS.Content.Models;
 using System.Linq;
 using System.Collections.Specialized;
+using Kooboo.CMS.Sites.Models;
 using Kooboo_CMS.Areas.Integration.Services;
 using Kooboo_CMS.Areas.Integration.Models;
 
@@ -23,12 +24,12 @@ namespace AnimalFriends.Integration.Controllers
     public class IntegrationAdminController : AdminControllerBase
     {
         private DataService _dataService;
-        private ImportSettingsService _importService;
+        private ImportSettingsService _importSettingsService;
 
         public IntegrationAdminController()
         {
             _dataService = new DataService();
-            _importService = new ImportSettingsService();
+            _importSettingsService = new ImportSettingsService();
         }
         public ActionResult Index()
         {
@@ -42,14 +43,14 @@ namespace AnimalFriends.Integration.Controllers
             var schema = folders.First().GetSchema();
             ViewBag.Folders = folders;
 
-            ViewBag.ActiveSetting = _importService.GetActive();
+            ViewBag.ActiveSetting = _importSettingsService.GetActive();
 
             return View();
         }
 
         public ActionResult ImportSetting(string id)
         {
-            var model = _importService.Get(id);
+            var model = _importSettingsService.Get(id);
             var structure = _dataService.GetStructureSQL(id);
             if (structure != null)
                 ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
@@ -59,7 +60,7 @@ namespace AnimalFriends.Integration.Controllers
 
         public ActionResult EditImportSetting(string id)
         {
-            var model = _importService.Get(id);
+            var model = _importSettingsService.Get(id);
             var structure = _dataService.GetStructureSQL(id);
             if (structure != null)
                 ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
@@ -113,7 +114,7 @@ namespace AnimalFriends.Integration.Controllers
             var structure =_dataService.GetStructureSQL("ds");
             if (structure != null)
                 ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
-            ViewBag.ActiveImportSetting = _importService.GetActive();
+            ViewBag.ActiveImportSetting = _importSettingsService.GetActive();
 
             // Get KooBooFolders
             ViewBag.Folders = ServiceFactory.TextFolderManager.All(Repository.Current, "").Cast<TextFolder>().ToList();
@@ -147,8 +148,27 @@ namespace AnimalFriends.Integration.Controllers
             return Json(resultEntry);
         }
 
-        public ActionResult UpdateSettings(ImportSetting importSetting)
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult CreateSetting()
         {
+            var newSetting = _importSettingsService.CreateSetting();
+            return RedirectToAction("EditImportSetting", new { id = newSetting.UUID, siteName = Site.Name});
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult CreateSetting(ImportSetting importSetting)
+        {
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateSetting(ImportSetting importSetting)
+        {
+            if (Request.Form["action"] == "delete")
+            {
+                _importSettingsService.DeleteSetting(importSetting.UUID);
+                return RedirectToAction("Index", new {siteName = Site.Name});
+            }
+
             if (importSetting != null)
             {
                 var setting = new NameValueCollection();
@@ -163,88 +183,19 @@ namespace AnimalFriends.Integration.Controllers
                     setting.Add("Name", importSetting.Name);
                 if (importSetting.Query != null)
                     setting.Add("Query", importSetting.Query);
+                setting.Add("Enabled", importSetting.Enabled.ToString());
+                setting.Add("RunOnApplicationStartup", importSetting.RunOnApplicationStartup.ToString());
                 setting.Add("SourceType", ((int)importSetting.SourceType).ToString());
+                setting.Add("RepeatIntervalInMinutes", ((int)importSetting.RepeatIntervalInMinutes).ToString());
 
-                _importService.UpdateImportSettings(importSetting.UUID, setting);
+                _importSettingsService.UpdateImportSettings(importSetting.UUID, setting);
             }
-
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
-
-        public ActionResult GetProperties(string folder)
-        {
-            ViewBag.Fields = _dataService.GetSchemaStructure(folder);
-            return PartialView("_Fields");
-        }
-
-        //#region Connections
-
-        //public ActionResult AddConnectionEvent(int eventToField, string field)
-        //{
-        //    var data = CookieService.GetFieldConnections();
-        //    var fieldToEdit = data.First(a => a.KoobooField == field);
-        //    if(fieldToEdit.Events == null)
-        //        fieldToEdit.Events = new List<EventModel>();
-
-        //    var eventModel = GetEvent(eventToField);
-        //    if(eventModel != null && fieldToEdit.Events.Count(a=>a.ID == eventToField) == 0)
-        //        fieldToEdit.Events.Add(eventModel);
-
-        //    CookieService.SetFieldConnections(data);
-
-        //    return PartialView("_Connected", data);
-        //}
-
-        //private EventModel GetEvent(int id)
-        //{
-        //    var list = GetAllEvents();
-        //    if (list == null)
-        //        return null;
-
-        //    var item = list.FirstOrDefault(a=>a.ID == id);
-
-        //    return (item != null) ? item : null;
-        //}
-
-        //private List<EventModel> GetAllEvents() 
-        //{
-        //    var list = new List<EventModel>();
-        //    var t = typeof(IIntegrationEvent);
-        //    var types = AppDomain.CurrentDomain.GetAssemblies()
-        //        .SelectMany(s => s.GetTypes())
-        //        .Where(p => t.IsAssignableFrom(p)).Where(a=>a.IsInterface == false);
-
-        //    list.Add(new EventModel(){ ID = 0, Name = "None"});
-        //    foreach (var type in types)
-        //    {
-        //        var tw = Activator.CreateInstance(type);
-        //        var h = tw as IIntegrationEvent;
-        //        list.Add(new EventModel() { ID = h.ID, Name = h.Name, AssemblyName = type.Assembly.FullName, TypeName = type.FullName });
-        //    }
-
-        //    return list;
-        //}
-
-        //public ActionResult GetEvents() 
-        //{
-        //    var model = GetAllEvents(); 
-        //    return PartialView("_Events", model);
-        //}
-
-        //public ActionResult RemoveConnectionEvent(int eventToField, string field)
-        //{
-        //    var data = CookieService.GetFieldConnections();
-        //    var fieldToEdit = data.First(a => a.KoobooField == field);
-        //    fieldToEdit.Events = fieldToEdit.Events.Where(a => a.ID != eventToField).ToList();
-
-        //    CookieService.SetFieldConnections(data);
-
-        //    return PartialView("_Connected", data);
-        //}
 
         public ActionResult GetAllImportSettings()
         {
-            var list = _importService.GetAll();
+            var list = _importSettingsService.GetAll();
             return PartialView("_AllImportSettings", list);
         }
 
@@ -270,49 +221,6 @@ namespace AnimalFriends.Integration.Controllers
 
             return PartialView("_ImportData", model);
         }
-
-
-        //public ActionResult RemoveFieldConnection(string databasecolumn, string field)
-        //{
-        //    var data = CookieService.GetFieldConnections();
-        //    var first = data.FirstOrDefault(a => a.SourceField == databasecolumn);
-        //    data.Remove(first);
-
-        //    CookieService.SetFieldConnections(data);
-        //    return PartialView("_Connected", data);
-        //}
-
-        //#endregion
-
-        //#region Conditions
-
-        //public ActionResult GetFieldConditions(string databasecolumn, string field)
-        //{
-        //    var conditions = CookieService.GetFieldConditions();
-
-        //    return PartialView("_Conditions", conditions);
-        //}
-
-        //public ActionResult AddFieldConditions(string databasecolumn, string value, string condition)
-        //{
-        //    var conditions = CookieService.GetFieldConditions();
-
-        //    conditions.Add(new ConditionModel(){ ColumnName = databasecolumn, Value = value, Condition = ConditionType.Same});
-
-        //    CookieService.SetFieldConditions(conditions);
-        //    return PartialView("_Conditions", conditions);
-        //}
-
-        //public ActionResult RemoveFieldConditions(string databasecolumn)
-        //{
-        //    var conditions = CookieService.GetFieldConditions();
-        //    var condition = conditions.FirstOrDefault(a => a.ColumnName == databasecolumn);
-        //    if (condition != null)
-        //        conditions.Remove(condition);
-
-        //    CookieService.SetFieldConditions(conditions);
-        //    return PartialView("_Conditions", conditions);
-        //}
 
         public ActionResult GetFieldDefaults()
         {

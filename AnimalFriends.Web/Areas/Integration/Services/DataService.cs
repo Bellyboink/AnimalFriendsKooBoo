@@ -16,6 +16,7 @@ using Kooboo.CMS.Content.Models;
 using Kooboo.CMS.Content.Services;
 using Kooboo.CMS.Sites.Models;
 using Kooboo_CMS.Areas.Integration.Models;
+using Kooboo_CMS.Areas.Integration.SignalR;
 
 namespace Kooboo_CMS.Areas.Integration.Services
 {
@@ -31,6 +32,19 @@ namespace Kooboo_CMS.Areas.Integration.Services
         {
             GetRepository();
             return ServiceFactory.TextFolderManager.Get(Repository.Current, "ImportSetting");
+        }
+
+        public void Delete(string uuid, TextFolder textfolder)
+        {
+            GetRepository();
+            ServiceFactory.TextContentManager.Delete(Repository.Current, textfolder, uuid);
+        }
+
+        public ContentBase Create(TextFolder textfolder)
+        {
+            GetRepository();
+            var values = new NameValueCollection();
+            return ServiceFactory.TextContentManager.Add(Repository.Current, textfolder, values, null, null, "");
         }
 
         public string Serialize<T>(T value)
@@ -55,23 +69,53 @@ namespace Kooboo_CMS.Areas.Integration.Services
             }
         }
 
+        public void MainThread()
+        {
+            // Every minute.
+            Thread.Sleep(60000);
+
+            // Loop all import tasks.
+            var importSettingsService = new ImportSettingsService();
+            var importProcessService = new ImportProcessService();
+            var importSettings = importSettingsService.GetAll();
+            
+            foreach (var importSetting in importSettings)
+            {
+                if (importSetting.Enabled && !importSetting.IsRunning() && 
+                    importSetting.LastStartedAt.AddMinutes(importSetting.RepeatIntervalInMinutes) < DateTime.Now)
+                    importProcessService.StartImport(importSetting.UUID);
+            }
+            this.MainThread();
+        }
+
         public void Import(string uuid)
         {
+            var stared = DateTime.Now;
             var importSettingsService = new ImportSettingsService();
             var setting = importSettingsService.Get(uuid);
+            setting.SetLastStartedAt(DateTime.Now);
             var folder = setting.ContentTypeFolder;
             var textfolder = ServiceFactory.TextFolderManager.Get(Repository.Current, folder);
             var dataToImport = GetDataToImport(uuid);
-            int totalCountStart = dataToImport.Count;
-            int totalCount = dataToImport.Count;
+            var totalCountStart = dataToImport.Count;
+            var elapsedCount = dataToImport.Count;
             var importProcessService = new ImportProcessService();
             foreach (var data in dataToImport)
             {
-                importProcessService.SetProcess(new ImportProcessModel(uuid, totalCount, totalCountStart, true));
+                var settingNow = importSettingsService.Get(uuid);
+                if(!settingNow.Enabled)
+                    break;
+                importProcessService.SetProcess(new ImportProcessModel(uuid, elapsedCount, totalCountStart, true));
+                IntegrationProgress.Send(new Progress { Uuid = uuid, TotalCount = totalCountStart, ElapsedCount = elapsedCount, StartDate = stared.ToString("HH:mm:ss"), ElapsedTime = (DateTime.Now - stared).ToString(@"hh\:mm\:ss"), Active = true});
                 ServiceFactory.TextContentManager.Add(Repository.Current, textfolder, data, null, null);
-                totalCount--;
+                elapsedCount--;
             }
+            
             importProcessService.SetProcess(new ImportProcessModel(uuid));
+            IntegrationProgress.Send(new Progress { Uuid = uuid, TotalCount = totalCountStart, ElapsedCount = elapsedCount, StartDate = stared.ToString("HH:mm:ss"), ElapsedTime = (DateTime.Now - stared).ToString(@"hh\:mm\:ss"), Active = false });
+
+            // Remove the thread.
+            importProcessService.GetThreads().Remove(uuid);
         }
 
         public T Deserialize<T>(string xml)
@@ -122,6 +166,8 @@ namespace Kooboo_CMS.Areas.Integration.Services
             }
             return new List<string>();
         }
+
+        
 
         public List<NameValueCollection> GetDataToImport(string uuid)
         {

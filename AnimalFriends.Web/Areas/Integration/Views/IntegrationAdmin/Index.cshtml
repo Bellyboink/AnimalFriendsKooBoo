@@ -7,14 +7,13 @@
 @section Panel{
     <ul class="panel">
         <li>
-            <a href="@Url.Action("Import", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
-                @Html.IconImage("import") @("Import".Localize())</a>
-        </li>
-        <li><a href="@Url.Action("Preview", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))" data-show-on-check="Any" data-command-type="AjaxPost" data-confirm="@("Are you sure you want to delete these items?".Localize())">
-            @Html.IconImage("preview") @("Preview".Localize())</a>
+            <a href="@Url.Action("CreateSetting")">@Html.IconImage("add") @("Add integration setting".Localize())</a>
         </li>
     </ul>
 }
+<script src="~/Areas/Integration/Scripts/jquery.signalR-1.1.4.min.js"></script>
+<script src="/signalr/hubs" type="text/javascript"></script>
+<script src="/Areas/Integration/Scripts/Integration-SingularR.js"></script>
 <div class="import">
     @Html.Action("GetAllImportSettings")
 </div>

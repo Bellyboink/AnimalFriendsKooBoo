@@ -77,6 +77,44 @@
             @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["Query"], null)
             
             </td>          
+            </tr><tr>
+            <th>
+           
+            </th>
+            <td>
+            <input id='RunOnApplicationStartup' name="RunOnApplicationStartup" type="checkbox" @(Convert.ToBoolean(Model.RunOnApplicationStartup)?"checked":"") value="true"/>
+                                    <input type="hidden" value="false" name="RunOnApplicationStartup"/>
+            <label class="inline" for="RunOnApplicationStartup">RunOnApplicationStartup</label>
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["RunOnApplicationStartup"], null)
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="LastStartedAt">LastStartedAt</label>
+            </th>
+            <td>
+            <input class="long" id="LastStartedAt" name="LastStartedAt" type="text" value="@(Model.LastStartedAt ==null ? "" : ((Model.LastStartedAt is string)? Model.LastStartedAt : Model.LastStartedAt.ToLocalTime().ToShortDateString()))" /><script language="javascript" type="text/javascript">$(function(){$("#LastStartedAt").datepicker();});</script>            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["LastStartedAt"], null)
+            
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="RepeatIntervalInMinutes">RepeatIntervalInMinutes</label>
+            </th>
+            <td>
+            <input class="long" id="RepeatIntervalInMinutes" name="RepeatIntervalInMinutes" type="text" value="@(Model.RepeatIntervalInMinutes ?? "")"  data-val-number="The field RepeatIntervalInMinutes must be a number." data-val="true"/>            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["RepeatIntervalInMinutes"], null)
+            
+            </td>          
+            </tr><tr>
+            <th>
+           
+            </th>
+            <td>
+            <input id='Enabled' name="Enabled" type="checkbox" @(Convert.ToBoolean(Model.Enabled)?"checked":"") value="true"/>
+                                    <input type="hidden" value="false" name="Enabled"/>
+            <label class="inline" for="Enabled">Enabled</label>
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["Enabled"], null)
+            </td>          
             </tr>
             @if (allowedEdit) {
                 <tr>

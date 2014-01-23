@@ -62,25 +62,35 @@ namespace Kooboo_CMS.Areas.Integration.Services
         public void StartImport(string uuid)
         {
             var threads = this.GetThreads();
-            var service = new DataService();
-            var process = new ImportProcessModel(uuid, 1, 2, true);
-            this.SetProcess(process);
-            var importThread = new Thread(() => service.Import(uuid));
-            importThread.Start();
-            threads.Add(uuid, importThread);
-            this.SetThreads(threads);
+            if (!threads.ContainsKey(uuid))
+            {
+                var service = new DataService();
+                var process = new ImportProcessModel(uuid, 1, 2, true);
+                this.SetProcess(process);
+                var importThread = new Thread(() => service.Import(uuid));
+                importThread.Start();
+
+                threads.Add(uuid, importThread);
+                this.SetThreads(threads);
+            }
         }
 
         public void StartAllIntegrations()
         {
-            // Loop all import tasks.
-            var service = new ImportSettingsService();
-            var importSettings = service.GetAll();
+            var importSettingsService = new ImportSettingsService();
+            var importProcessService = new ImportProcessService();
+            var importSettings = importSettingsService.GetAll();
+
             foreach (var importSetting in importSettings)
             {
-                if(importSetting.RunOnApplicationStartup)
-                    this.StartImport(importSetting.UUID);
+                if (importSetting.Enabled && importSetting.RunOnApplicationStartup)
+                    importProcessService.StartImport(importSetting.UUID);
             }
+
+            var dataService = new DataService();
+            var mainIntegrationThread = new Thread(() => dataService.MainThread());
+            mainIntegrationThread.Start();
+            
         }
     }
 

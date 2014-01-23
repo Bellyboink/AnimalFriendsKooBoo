@@ -14,7 +14,6 @@ namespace Kooboo_CMS.Areas.Integration.Services
 {
     public class ImportSettingsService
     {
-
         public List<ImportSetting> GetAll()
         {
             var dataService = new DataService();
@@ -38,7 +37,7 @@ namespace Kooboo_CMS.Areas.Integration.Services
 
         public ImportSetting GetActive()
         {
-            return GetAll().FirstOrDefault(a => a.IsActive);
+            return GetAll().FirstOrDefault(a => a.Active);
         }
 
         public ImportSetting Get(string uuid)
@@ -51,7 +50,7 @@ namespace Kooboo_CMS.Areas.Integration.Services
             var dataService = new DataService();
             var folder = dataService.GetImportSettingsFolder();
             var content = folder.CreateQuery().FirstOrDefault(a => a.UUID == uuid);
-            var mappedFields = content.GetValue("MappedFields");
+            var mappedFields = content.GetValue<string>("MappedFields");
             if (string.IsNullOrEmpty(mappedFields))
                 return new List<MappedFieldModel>();
 
@@ -90,11 +89,25 @@ namespace Kooboo_CMS.Areas.Integration.Services
             return mappedFields;
         }
 
+        public ContentBase CreateSetting()
+        {
+            var dataService = new DataService();
+            var textfolder = dataService.GetImportSettingsFolder();
+            return dataService.Create(textfolder);
+        }
+
+        public void DeleteSetting(string uuid)
+        {
+            var dataService = new DataService();
+            var textfolder = dataService.GetImportSettingsFolder();
+            dataService.Delete(uuid, textfolder);
+        }
+
         public void UpdateImportSettings(string uuid, NameValueCollection settings)
         {
             var dataService = new DataService();
             dataService.GetRepository();
-            var folder = ServiceFactory.TextFolderManager.Get(Repository.Current, "ImportSetting");
+            var folder = dataService.GetImportSettingsFolder();
             ServiceFactory.TextContentManager.Update(Repository.Current, folder, uuid, settings);
         }
     }

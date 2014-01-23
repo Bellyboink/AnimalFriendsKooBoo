@@ -5,22 +5,23 @@
     width: 100%;
 }
 
-.import-settings label{
-    display:block;
-}
-
 .import-settings select, 
-.import-settings input,
+.import-settings [type="text"],
+.import-settings [type="number"],
 .import-settings textarea{
-    width:90%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width:95%;
 }
 
-.import input[type='text'], .import select{
+.import input[type='text'],
+.import input[type='number'],
+.import select{
     padding: 0.5em;
 }
 
 .import-settings button{
-    display:block;
+    margin-right: 1em;
 }
 
 .import{
@@ -207,11 +208,61 @@
     color: #333;
 }
 
-.import-setting .stop,
-.running .import{
+.inactive .stop,
+.active .import{
     display: none;
 }
 
-.running .stop{
+.inactive .import,
+.active .stop{
     display: inherit;
+}
+
+progress {
+    -webkit-appearance: none;
+   appearance: none;
+    width:100%;
+    background:#fff;
+    border:2px solid #ddd;
+}
+
+progress[value]::-webkit-progress-bar  {
+    background:#fff;
+}
+
+progress[value]::-webkit-progress-value  {
+    background:#2ecc71;
+}
+
+.progressinfo {
+    display: inline-block;
+    width: 49%;
+}
+
+.progressinfo-active {
+    text-align: right;
+}
+
+.hide-progressinfo {
+    display: none;
+}
+
+.show-progressinfo {
+    display: inline-block;
+}
+
+.import-settings input[type="checkbox"] {
+    margin-right: 1em;
+}
+
+.import-settings label {
+    display: block;
+}
+
+.import-settings input+label {
+    display: inline;
+}
+
+.import-settings .form-item {
+    margin: 0 0 1.5em;
 }

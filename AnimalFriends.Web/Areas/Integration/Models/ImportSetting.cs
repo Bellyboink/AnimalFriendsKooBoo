@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using Kooboo.CMS.Content.Models;
@@ -21,8 +22,11 @@ namespace Kooboo_CMS.Areas.Integration.Models
         public string ContentTypeFolder { get; set; }
         public List<MappedFieldModel> MappedFields { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool Active { get; set; }
+        public bool Enabled { get; set; }
         public bool RunOnApplicationStartup { get; set; }
+        public DateTime LastStartedAt { get; set; }
+        public int RepeatIntervalInMinutes { get; set; }
 
         public ImportSetting()
         {
@@ -31,7 +35,7 @@ namespace Kooboo_CMS.Areas.Integration.Models
 
         public ImportSetting Populate(TextContent setting)
         {
-            var sourceType = setting.GetValue("SourceType");
+            var sourceType = setting.GetValue<string>("SourceType");
             int sourceTypeInt;
             if (int.TryParse(sourceType, out sourceTypeInt))
                 SourceType = (SourceTypeEnum) sourceTypeInt;
@@ -39,17 +43,29 @@ namespace Kooboo_CMS.Areas.Integration.Models
                 SourceType = SourceTypeEnum.None;
 
             UUID = setting.UUID;
-            Name = setting.GetValue("Name");
-            ConnectionString = setting.GetValue("ConnectionString");
-            DatabaseTable = setting.GetValue("DatabaseTable");
-            ContentTypeFolder = setting.GetValue("ContentTypeFolder");
-            Query = setting.GetValue("Query");
+            Name = setting.GetValue<string>("Name");
+            ConnectionString = setting.GetValue<string>("ConnectionString");
+            DatabaseTable = setting.GetValue<string>("DatabaseTable");
+            ContentTypeFolder = setting.GetValue<string>("ContentTypeFolder");
+            Query = setting.GetValue<string>("Query");
+            RunOnApplicationStartup = setting.GetValue<bool>("RunOnApplicationStartup");
+            Enabled = setting.GetValue<bool>("Enabled");
+            LastStartedAt = setting.GetValue<DateTime>("LastStartedAt");
+            RepeatIntervalInMinutes = setting.GetValue<int>("RepeatIntervalInMinutes");
 
             // Get mapped fields.
             MappedFields = _importService.GetMappedFields(setting.UUID);
 
             return this;
         }
+
+        public void SetLastStartedAt(DateTime dateTime)
+        {
+            var collection = new NameValueCollection();
+            collection.Add("LastStartedAt", dateTime.ToString());
+            _importService.UpdateImportSettings(this.UUID, collection);
+        }
+
         public bool IsRunning()
         {
             var service = new ImportProcessService();
@@ -68,12 +84,12 @@ namespace Kooboo_CMS.Areas.Integration.Models
 
     public static class TextContentExtension
     {
-        public static string GetValue(this TextContent content, string key)
+        public static T GetValue<T>(this TextContent content, string key)
         {
             object o;
-            if(content.TryGetValue(key, out o) && o != null)
-                return o.ToString();
-            return string.Empty;
+            if (content.TryGetValue(key, out o) && o != null)
+                return (T) o;
+            return default(T);
         }
     }
 }

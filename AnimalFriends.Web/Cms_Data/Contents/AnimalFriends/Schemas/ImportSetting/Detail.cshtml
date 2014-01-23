@@ -9,6 +9,10 @@
 		<div @ViewHelper.Edit(Model,"MappedFields")>@Html.Raw(Model.MappedFields ?? "")</div>
 		<div @ViewHelper.Edit(Model,"SourceType")>@Html.Raw(Model.SourceType ?? "")</div>
 		<div @ViewHelper.Edit(Model,"Query")>@Html.Raw(Model.Query ?? "")</div>
+		<div @ViewHelper.Edit(Model,"RunOnApplicationStartup")>@Html.Raw(Model.RunOnApplicationStartup ?? "")</div>
+		<div @ViewHelper.Edit(Model,"LastStartedAt")>@Html.Raw(Model.LastStartedAt ?? "")</div>
+		<div @ViewHelper.Edit(Model,"RepeatIntervalInMinutes")>@Html.Raw(Model.RepeatIntervalInMinutes ?? "")</div>
+		<div @ViewHelper.Edit(Model,"Enabled")>@Html.Raw(Model.Enabled ?? "")</div>
 	</div>
 </div>
 }
