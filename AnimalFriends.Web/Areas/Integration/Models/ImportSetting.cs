@@ -27,6 +27,10 @@ namespace Kooboo_CMS.Areas.Integration.Models
         public bool RunOnApplicationStartup { get; set; }
         public DateTime LastStartedAt { get; set; }
         public int RepeatIntervalInMinutes { get; set; }
+        
+        public string XmlReadFolder { get; set; }
+        public string XmlArchiveFolder { get; set; }
+        public string XmlItemName { get; set; }
 
         public ImportSetting()
         {
@@ -52,6 +56,10 @@ namespace Kooboo_CMS.Areas.Integration.Models
             Enabled = setting.GetValue<bool>("Enabled");
             LastStartedAt = setting.GetValue<DateTime>("LastStartedAt");
             RepeatIntervalInMinutes = setting.GetValue<int>("RepeatIntervalInMinutes");
+            
+            XmlArchiveFolder = setting.GetValue<string>("XmlArchiveFolder");
+            XmlReadFolder = setting.GetValue<string>("XmlReadFolder");
+            XmlItemName = setting.GetValue<string>("XmlItemName");
 
             // Get mapped fields.
             MappedFields = _importService.GetMappedFields(setting.UUID);

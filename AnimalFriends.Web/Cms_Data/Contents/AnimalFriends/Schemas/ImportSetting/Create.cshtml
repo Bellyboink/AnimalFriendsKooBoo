@@ -42,20 +42,20 @@
             </td>          
             </tr><tr>
             <th>
-            <label for="ContentTypeFolder">ContentTypeFolder</label>
-            </th>
-            <td>
-            <input class='long' id="ContentTypeFolder" name="ContentTypeFolder" type="text" value="@(Model.ContentTypeFolder ?? "")" />            
-            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["ContentTypeFolder"], null)
-            
-            </td>          
-            </tr><tr>
-            <th>
             <label for="MappedFields">MappedFields</label>
             </th>
             <td>
             <input class='long' id="MappedFields" name="MappedFields" type="text" value="@(Model.MappedFields ?? "")" />            
             @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["MappedFields"], null)
+            
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="ContentTypeFolder">ContentTypeFolder</label>
+            </th>
+            <td>
+            <input class='long' id="ContentTypeFolder" name="ContentTypeFolder" type="text" value="@(Model.ContentTypeFolder ?? "")" />            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["ContentTypeFolder"], null)
             
             </td>          
             </tr><tr>
@@ -113,6 +113,33 @@
                                     <input type="hidden" value="false" name="Enabled"/>
             <label class="inline" for="Enabled">Enabled</label>
             @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["Enabled"], null)
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="XmlReadFolder">XmlReadFolder</label>
+            </th>
+            <td>
+            <input class='long' id="XmlReadFolder" name="XmlReadFolder" type="text" value="@(Model.XmlReadFolder ?? "")" />            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["XmlReadFolder"], null)
+            
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="XmlArchiveFolder">XmlArchiveFolder</label>
+            </th>
+            <td>
+            <input class='long' id="XmlArchiveFolder" name="XmlArchiveFolder" type="text" value="@(Model.XmlArchiveFolder ?? "")" />            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["XmlArchiveFolder"], null)
+            
+            </td>          
+            </tr><tr>
+            <th>
+            <label for="XmlItemName">XmlItemName</label>
+            </th>
+            <td>
+            <input class='long' id="XmlItemName" name="XmlItemName" type="text" value="@(Model.XmlItemName ?? "")" />            
+            @Html.ValidationMessageForColumn(((ISchema)ViewData["Schema"])["XmlItemName"], null)
+            
             </td>          
             </tr>
             @if (allowedEdit) {

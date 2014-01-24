@@ -33,47 +33,36 @@ namespace AnimalFriends.Integration.Controllers
         }
         public ActionResult Index()
         {
-            _dataService.GetRepository();
-            ViewBag.Table = CookieService.GetTable();
-            ViewBag.Folder = CookieService.GetFolder();
-            ViewBag.Fields = _dataService.GetSchemaStructure(CookieService.GetFolder());
-
-            // Get KooBooFolders
-            var folders = ServiceFactory.TextFolderManager.All(Repository.Current, "").Cast<TextFolder>().ToList();
-            var schema = folders.First().GetSchema();
-            ViewBag.Folders = folders;
-
-            ViewBag.ActiveSetting = _importSettingsService.GetActive();
-
             return View();
         }
 
-        public ActionResult ImportSetting(string id)
+        public ActionResult ImportSetting(string uuid)
         {
-            var model = _importSettingsService.Get(id);
-            var structure = _dataService.GetStructureSQL(id);
+            var importSetting = _importSettingsService.Get(uuid);
+            var structure = _dataService.GetSourceStructure(importSetting);
             if (structure != null)
                 ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
 
-            return View(model);
+            return View(importSetting);
         }
 
-        public ActionResult EditImportSetting(string id)
+        public ActionResult EditImportSetting(string uuid)
         {
-            var model = _importSettingsService.Get(id);
-            var structure = _dataService.GetStructureSQL(id);
+            var importSetting = _importSettingsService.Get(uuid);
+            var structure = _dataService.GetSourceStructure(importSetting);
             if (structure != null)
                 ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
 
             ViewBag.Folders = ServiceFactory.TextFolderManager.All(Repository.Current, "").Cast<TextFolder>().ToList();
 
-            return View(model);
+            return View(importSetting);
         }
 
         public ActionResult Import(string uuid)
         {
-            var service = new ImportProcessService();
-            service.StartImport(uuid);
+            var iomportProcessService = new ImportProcessService();
+            var importSettingsService = new ImportSettingsService();
+            iomportProcessService.StartImport(importSettingsService.Get(uuid));
             
             return RedirectToAction("Index");
         }
@@ -108,19 +97,19 @@ namespace AnimalFriends.Integration.Controllers
             return Json(model);
         }
 
-        public ActionResult SourceSettings()
-        {
-            _dataService.GetRepository();
-            var structure =_dataService.GetStructureSQL("ds");
-            if (structure != null)
-                ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
-            ViewBag.ActiveImportSetting = _importSettingsService.GetActive();
+        //public ActionResult SourceSettings()
+        //{
+        //    _dataService.GetRepository();
+        //    var structure =_dataService.GetStructureSQL("ds");
+        //    if (structure != null)
+        //        ViewBag.DatabaseTableStructure = structure.AllKeys.ToList();
+        //    ViewBag.ActiveImportSetting = _importSettingsService.GetActive();
 
-            // Get KooBooFolders
-            ViewBag.Folders = ServiceFactory.TextFolderManager.All(Repository.Current, "").Cast<TextFolder>().ToList();
+        //    // Get KooBooFolders
+        //    ViewBag.Folders = ServiceFactory.TextFolderManager.All(Repository.Current, "").Cast<TextFolder>().ToList();
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult Create()
         {
@@ -152,7 +141,7 @@ namespace AnimalFriends.Integration.Controllers
         public ActionResult CreateSetting()
         {
             var newSetting = _importSettingsService.CreateSetting();
-            return RedirectToAction("EditImportSetting", new { id = newSetting.UUID, siteName = Site.Name});
+            return RedirectToAction("EditImportSetting", new { uuid = newSetting.UUID, siteName = Site.Name});
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -183,6 +172,12 @@ namespace AnimalFriends.Integration.Controllers
                     setting.Add("Name", importSetting.Name);
                 if (importSetting.Query != null)
                     setting.Add("Query", importSetting.Query);
+                if (importSetting.XmlArchiveFolder != null)
+                    setting.Add("XmlArchiveFolder", importSetting.XmlArchiveFolder);
+                if (importSetting.XmlReadFolder != null)
+                    setting.Add("XmlReadFolder", importSetting.XmlReadFolder);
+                if (importSetting.XmlItemName != null)
+                    setting.Add("XmlItemName", importSetting.XmlItemName);
                 setting.Add("Enabled", importSetting.Enabled.ToString());
                 setting.Add("RunOnApplicationStartup", importSetting.RunOnApplicationStartup.ToString());
                 setting.Add("SourceType", ((int)importSetting.SourceType).ToString());
@@ -214,20 +209,20 @@ namespace AnimalFriends.Integration.Controllers
             ViewBag.UUID = uuid;
             return PartialView("_Connected", data);
         }
-        public ActionResult GetImportData(string uuid)
-        {
-            var service = new DataService();
-            var model = service.GetImportInfo(uuid);
+        //public ActionResult GetImportData(string uuid)
+        //{
+        //    var service = new DataService();
+        //    var model = service.GetImportInfo(uuid);
 
-            return PartialView("_ImportData", model);
-        }
+        //    return PartialView("_ImportData", model);
+        //}
 
-        public ActionResult GetFieldDefaults()
-        {
-            var defaults = CookieService.GetFieldDefaults();
+        //public ActionResult GetFieldDefaults()
+        //{
+        //    var defaults = CookieService.GetFieldDefaults();
 
-            return PartialView("_Defaults", defaults);
-        }
+        //    return PartialView("_Defaults", defaults);
+        //}
 
         public ActionResult AddDefaultField(string uuid, MappedFieldModel mappedField)
         {
@@ -240,13 +235,13 @@ namespace AnimalFriends.Integration.Controllers
             return PartialView("_Connected", data);
         }
 
-        public ActionResult RemoveFieldDefaults(string field)
-        {
-            var defaults = CookieService.GetFieldDefaults();
-            defaults.Remove(field);
+        //public ActionResult RemoveFieldDefaults(string field)
+        //{
+        //    var defaults = CookieService.GetFieldDefaults();
+        //    defaults.Remove(field);
 
-            CookieService.SetFieldDefaults(defaults);
-            return PartialView("_Defaults", defaults);
-        }
+        //    CookieService.SetFieldDefaults(defaults);
+        //    return PartialView("_Defaults", defaults);
+        //}
     }
 }

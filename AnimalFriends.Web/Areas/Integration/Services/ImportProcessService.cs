@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Caching;
 using System.Threading;
-using System.Web;
-using System.Web.Caching;
-
+using Kooboo_CMS.Areas.Integration.Models;
 
 namespace Kooboo_CMS.Areas.Integration.Services
 {
@@ -33,14 +30,13 @@ namespace Kooboo_CMS.Areas.Integration.Services
 
         public void SetProcess(ImportProcessModel process)
         {
-            var key = GetKey(process.UUID);
+            var key = GetKey(process.Uuid);
             ObjectCache cache = MemoryCache.Default;
             if (process.ItemsLeft != 0)
                 cache.Set(key, process, new DateTimeOffset(DateTime.Now.AddMinutes(30)));
             else
                 cache.Remove(key);
         }
-
 
         public Dictionary<string, Thread> GetThreads()
         {
@@ -59,19 +55,19 @@ namespace Kooboo_CMS.Areas.Integration.Services
             cache.Set(key, threads, new DateTimeOffset(DateTime.Now.AddMinutes(200)));
         }
 
-        public void StartImport(string uuid)
+        public void StartImport(ImportSetting importSetting)
         {
-            var threads = this.GetThreads();
-            if (!threads.ContainsKey(uuid))
+            var threads = GetThreads();
+            if (!threads.ContainsKey(importSetting.UUID))
             {
-                var service = new DataService();
-                var process = new ImportProcessModel(uuid, 1, 2, true);
-                this.SetProcess(process);
-                var importThread = new Thread(() => service.Import(uuid));
+                var service = new ImportService();
+                var process = new ImportProcessModel(importSetting.UUID, 1, 2, true);
+                SetProcess(process);
+                var importThread = new Thread(() => service.Import(importSetting));
                 importThread.Start();
 
-                threads.Add(uuid, importThread);
-                this.SetThreads(threads);
+                threads.Add(importSetting.UUID, importThread);
+                SetThreads(threads);
             }
         }
 
@@ -84,19 +80,18 @@ namespace Kooboo_CMS.Areas.Integration.Services
             foreach (var importSetting in importSettings)
             {
                 if (importSetting.Enabled && importSetting.RunOnApplicationStartup)
-                    importProcessService.StartImport(importSetting.UUID);
+                    importProcessService.StartImport(importSetting);
             }
 
-            var dataService = new DataService();
-            var mainIntegrationThread = new Thread(() => dataService.MainThread());
+            var importService = new ImportService();
+            var mainIntegrationThread = new Thread(importService.MainThread);
             mainIntegrationThread.Start();
-            
         }
     }
 
     public class ImportProcessModel
     {
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
         public int ItemsLeft { get; set; }
         public int ItemsTotal { get; set; }
         public int Procent { get; set; }
@@ -105,14 +100,14 @@ namespace Kooboo_CMS.Areas.Integration.Services
         public ImportProcessModel(string uuid, int itemsleft = 1, int itemsTotal = 2, bool running = false)
         {
             Running = running;
-            UUID = uuid;
+            Uuid = uuid;
             ItemsLeft = itemsleft;
             ItemsTotal = itemsTotal;
             Procent = 100;
             if (ItemsLeft != 0)
             {
-                var procent = (decimal) ItemsLeft/(decimal) ItemsTotal*100;
-                Procent = (int) procent;
+                var procent = ItemsLeft / ItemsTotal * 100;
+                Procent = procent;
             }
         }
     }

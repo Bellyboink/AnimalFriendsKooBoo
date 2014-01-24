@@ -2,32 +2,32 @@
 <ArrayOfLastAction xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kooboo.CMS.Search.Models">
 	<LastAction>
 		<FolderName>ImportSetting</FolderName>
-		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
-		<Action>Update</Action>
-		<UtcActionDate>2014-01-23T08:17:55.2979129Z</UtcActionDate>
-	</LastAction>
-	<LastAction>
-		<FolderName>ImportSetting</FolderName>
-		<ContentSummary>User ID=Oie;Password=Wipcore77;Data Source=10.0.2.42;Database=Oie20120202</ContentSummary>
-		<Action>Update</Action>
-		<UtcActionDate>2014-01-23T08:17:41.7205553Z</UtcActionDate>
+		<ContentSummary></ContentSummary>
+		<Action>Delete</Action>
+		<UtcActionDate>2014-01-24T15:02:44.2476016Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
 		<FolderName>ImportSetting</FolderName>
 		<ContentSummary></ContentSummary>
 		<Action>Delete</Action>
-		<UtcActionDate>2014-01-23T07:57:54.4658417Z</UtcActionDate>
+		<UtcActionDate>2014-01-24T15:02:39.4321201Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
 		<FolderName>ImportSetting</FolderName>
 		<ContentSummary></ContentSummary>
 		<Action>Delete</Action>
-		<UtcActionDate>2014-01-23T07:51:52.7066694Z</UtcActionDate>
+		<UtcActionDate>2014-01-24T15:02:36.6278397Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
 		<FolderName>ImportSetting</FolderName>
 		<ContentSummary></ContentSummary>
 		<Action>Delete</Action>
-		<UtcActionDate>2014-01-23T07:51:11.9215913Z</UtcActionDate>
+		<UtcActionDate>2014-01-24T15:02:30.7362506Z</UtcActionDate>
+	</LastAction>
+	<LastAction>
+		<FolderName>ImportSetting</FolderName>
+		<ContentSummary></ContentSummary>
+		<Action>Delete</Action>
+		<UtcActionDate>2014-01-24T15:02:25.0806851Z</UtcActionDate>
 	</LastAction>
 </ArrayOfLastAction>

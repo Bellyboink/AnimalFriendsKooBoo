@@ -11,5 +11,6 @@ namespace Kooboo_CMS.Areas.Integration.Models
         public string DefaultValue { get; set; }
         public string SourceField { get; set; }
         public string KoobooField { get; set; }
+        public bool Key { get; set; }
     }
 }

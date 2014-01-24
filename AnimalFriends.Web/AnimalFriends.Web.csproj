@@ -246,9 +246,12 @@
     <Compile Include="Areas\Integration\Repositories\NewsRepository.cs" />
     <Compile Include="Areas\Integration\Services\CookieService.cs" />
     <Compile Include="Areas\Integration\Services\DataService.cs" />
+    <Compile Include="Areas\Integration\Services\ImportService.cs" />
     <Compile Include="Areas\Integration\Services\ImportSettingsService.cs" />
     <Compile Include="Areas\Integration\Hub\IntegrationProcess.cs" />
     <Compile Include="Areas\Integration\Hub\SignalRConfig.cs" />
+    <Compile Include="Areas\Integration\Services\SqlService.cs" />
+    <Compile Include="Areas\Integration\Services\XmlService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +260,8 @@
     <Content Include="Areas\Contents\Styles\images\map-item-done.png" />
     <Content Include="Areas\Contents\Styles\images\map-item-hover.png" />
     <Content Include="Areas\Contents\Styles\images\map-item.png" />
+    <Content Include="Areas\Integration\Themes\Default\fonts\integration.svg" />
+    <Content Include="Areas\Integration\Images\key.png" />
     <Content Include="Areas\Integration\Scripts\app.js" />
     <Content Include="Areas\Integration\Scripts\Integration-SingularR.js" />
     <Content Include="Areas\Integration\Scripts\integration.js" />
@@ -273,6 +278,7 @@
     <Content Include="Areas\Integration\Themes\Default\style.css" />
     <Content Include="Areas\Integration\Themes\Default\style1.css" />
     <Content Include="Areas\Integration\Themes\Default\Styles\integration.css" />
+    <Content Include="Areas\Integration\Themes\Default\Styles\integration-icons.css" />
     <Content Include="Areas\Sites\CodeSnippets\NVelocity\ContentQuery\CreateQuery.txt" />
     <Content Include="Areas\Sites\CodeSnippets\NVelocity\ContentQuery\MediaFolder.txt" />
     <Content Include="Areas\Sites\CodeSnippets\NVelocity\ContentQuery\Order\OrderBy.txt" />
@@ -1008,6 +1014,9 @@
     <Content Include="Scripts\html5uploader\jquery.fileupload.js" />
     <Content Include="Scripts\html5uploader\jquery.iframe-transport.js" />
     <Content Include="Scripts\html5uploader\vendor\jquery.ui.widget.js" />
+    <Content Include="Areas\Integration\Themes\Default\fonts\integration.eot" />
+    <Content Include="Areas\Integration\Themes\Default\fonts\integration.ttf" />
+    <Content Include="Areas\Integration\Themes\Default\fonts\integration.woff" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />

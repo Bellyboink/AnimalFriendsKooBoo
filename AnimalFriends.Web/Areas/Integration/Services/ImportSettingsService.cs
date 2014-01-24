@@ -14,15 +14,18 @@ namespace Kooboo_CMS.Areas.Integration.Services
 {
     public class ImportSettingsService
     {
-        public List<ImportSetting> GetAll()
+        public TextFolder GetImportSettingsFolder()
         {
             var dataService = new DataService();
+            return dataService.GetFolder("ImportSetting");
+        }
 
-            dataService.GetRepository();
+        public List<ImportSetting> GetAll()
+        {
             var list = new List<ImportSetting>();
 
             // Get KooBooFolders
-            var folder = dataService.GetImportSettingsFolder();
+            var folder = GetImportSettingsFolder();
             if (folder != null)
             {
                 foreach (var importSetting in folder.CreateQuery())
@@ -47,43 +50,43 @@ namespace Kooboo_CMS.Areas.Integration.Services
 
         public List<MappedFieldModel> GetMappedFields(string uuid)
         {
-            var dataService = new DataService();
-            var folder = dataService.GetImportSettingsFolder();
+            var service = new XmlService();
+            var folder = GetImportSettingsFolder();
             var content = folder.CreateQuery().FirstOrDefault(a => a.UUID == uuid);
             var mappedFields = content.GetValue<string>("MappedFields");
             if (string.IsNullOrEmpty(mappedFields))
                 return new List<MappedFieldModel>();
 
-            var data = dataService.Deserialize<List<MappedFieldModel>>(mappedFields);
+            var data = service.Deserialize<List<MappedFieldModel>>(mappedFields);
             return data;
         }
 
         public void SetMappedFields(string uuid, List<MappedFieldModel> data)
         {
-            var dataService = new DataService();
-            var dataAsString = dataService.Serialize<List<MappedFieldModel>>(data);
+            var service = new XmlService();
+            var dataAsString = service.Serialize<List<MappedFieldModel>>(data);
             this.UpdateImportSettings(uuid, new NameValueCollection { { "MappedFields", dataAsString } });
         }
 
         public List<MappedFieldModel> AddMappedField(string uuid, MappedFieldModel data)
         {
-            var dataService = new DataService();
+            var service = new XmlService();
             var mappedFields = GetMappedFields(uuid);
             mappedFields.Add(data);
-            var dataAsString = dataService.Serialize<List<MappedFieldModel>>(mappedFields);
+            var dataAsString = service.Serialize<List<MappedFieldModel>>(mappedFields);
             this.UpdateImportSettings(uuid, new NameValueCollection { { "MappedFields", dataAsString } });
             return mappedFields;
         }
 
         public List<MappedFieldModel> RemoveMappedField(string uuid, MappedFieldModel data)
         {
-            var dataService = new DataService();
+            var service = new XmlService();
             var mappedFields = GetMappedFields(uuid);
             var elementToRemove = mappedFields.FirstOrDefault(a => a.KoobooField == data.KoobooField);
             if (elementToRemove != null)
             {
                 mappedFields.Remove(elementToRemove);
-                var dataAsString = dataService.Serialize<List<MappedFieldModel>>(mappedFields);
+                var dataAsString = service.Serialize<List<MappedFieldModel>>(mappedFields);
                 UpdateImportSettings(uuid, new NameValueCollection {{"MappedFields", dataAsString}});
             }
             return mappedFields;
@@ -92,22 +95,22 @@ namespace Kooboo_CMS.Areas.Integration.Services
         public ContentBase CreateSetting()
         {
             var dataService = new DataService();
-            var textfolder = dataService.GetImportSettingsFolder();
-            return dataService.Create(textfolder);
+            var textfolder = GetImportSettingsFolder();
+            return dataService.CreateContent(textfolder);
         }
 
         public void DeleteSetting(string uuid)
         {
             var dataService = new DataService();
-            var textfolder = dataService.GetImportSettingsFolder();
-            dataService.Delete(uuid, textfolder);
+            var textfolder = GetImportSettingsFolder();
+            dataService.DeleteContent(uuid, textfolder);
         }
 
         public void UpdateImportSettings(string uuid, NameValueCollection settings)
         {
             var dataService = new DataService();
             dataService.GetRepository();
-            var folder = dataService.GetImportSettingsFolder();
+            var folder = GetImportSettingsFolder();
             ServiceFactory.TextContentManager.Update(Repository.Current, folder, uuid, settings);
         }
     }

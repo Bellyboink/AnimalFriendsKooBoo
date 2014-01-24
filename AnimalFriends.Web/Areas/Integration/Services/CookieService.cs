@@ -35,53 +35,48 @@ namespace Kooboo_CMS.Areas.Integration.Services
 
         #endregion
 
-        #region Defaults
 
-        public static Dictionary<string, string> GetFieldDefaults()
-        {
-            var decrypter = new RijndaelAlg();
-            var dataAsString = GetCookie("FieldDefaults");
-            if (string.IsNullOrEmpty(dataAsString))
-                return new Dictionary<string, string>();
+        //public static Dictionary<string, string> GetFieldDefaults()
+        //{
+        //    var decrypter = new RijndaelAlg();
+        //    var dataAsString = GetCookie("FieldDefaults");
+        //    if (string.IsNullOrEmpty(dataAsString))
+        //        return new Dictionary<string, string>();
 
-            var data = StringToDictionary(decrypter.Decrypt(dataAsString));
-            return data;
-        }
+        //    var data = StringToDictionary(decrypter.Decrypt(dataAsString));
+        //    return data;
+        //}
 
-        public static void SetFieldDefaults(Dictionary<string,string> defaults)
-        {
-            var dataAsString = DictionaryToString(defaults);
-            var encrypter = new RijndaelAlg();
-            SetCookie("FieldDefaults", encrypter.Encrypt(dataAsString));
-        }
+        //public static void SetFieldDefaults(Dictionary<string,string> defaults)
+        //{
+        //    var dataAsString = DictionaryToString(defaults);
+        //    var encrypter = new RijndaelAlg();
+        //    SetCookie("FieldDefaults", encrypter.Encrypt(dataAsString));
+        //}
 
-        #endregion
 
-        #region Datasource table
+        //public static string GetTable()
+        //{
+        //    return GetCookie("Table");
+        //}
 
-        public static string GetTable()
-        {
-            return GetCookie("Table");
-        }
+        //public static void SetTable(string value)
+        //{
+        //    SetCookie("Table", value);
+        //}
 
-        public static void SetTable(string value)
-        {
-            SetCookie("Table", value);
-        }
+        //#endregion
 
-        #endregion
+        //public static string GetFolder()
+        //{
+        //    return GetCookie("Folder");
+        //}
 
-        public static string GetFolder()
-        {
-            return GetCookie("Folder");
-        }
+        //public static void SetFolder(string value)
+        //{
+        //    SetCookie("Folder", value);
+        //}
 
-        public static void SetFolder(string value)
-        {
-            SetCookie("Folder", value);
-        }
-
-        #region Private helpers
 
         private static string GetCookie(string name)
         {
@@ -157,6 +152,5 @@ namespace Kooboo_CMS.Areas.Integration.Services
             return dataAsString;
         }
 
-        #endregion
     }
 }

@@ -5,10 +5,10 @@
     width: 100%;
 }
 
-.import-settings select, 
-.import-settings [type="text"],
-.import-settings [type="number"],
-.import-settings textarea{
+.import select, 
+.import [type="text"],
+.import [type="number"],
+.import textarea{
     border: 1px solid #ccc;
     box-sizing: border-box;
     width:95%;
@@ -76,7 +76,8 @@
     width: 42%;
 }
 .field select,
-.field input {
+.field input[type="text"] {
+    margin-bottom: 1em;
     width: 85%
 }
 
@@ -251,15 +252,16 @@ progress[value]::-webkit-progress-value  {
     display: inline-block;
 }
 
-.import-settings input[type="checkbox"] {
+.import input[type="checkbox"] {
     margin-right: 1em;
 }
 
-.import-settings label {
+.import label {
     display: block;
+    font-weight: bold;
 }
 
-.import-settings input+label {
+.import input+label {
     display: inline;
 }
 

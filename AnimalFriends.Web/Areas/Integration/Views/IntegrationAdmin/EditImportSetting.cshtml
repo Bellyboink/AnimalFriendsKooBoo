@@ -8,14 +8,7 @@
 
 @section Panel{
     <ul class="panel">
-        <li>
-            <a href="@Url.Action("Import", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
-                @Html.IconImage("import") @("Import".Localize())</a>
-        </li>
-        <li><a href="@Url.Action("Preview", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))" data-show-on-check="Any" data-command-type="AjaxPost" data-confirm="@("Are you sure you want to delete these items?".Localize())">
-            @Html.IconImage("preview") @("Preview".Localize())</a>
-        </li>
-        <li><a href="@Url.Action("ImportSetting", "IntegrationAdmin", new{ id = Model.UUID})">
+        <li><a href="@Url.Action("ImportSetting", "IntegrationAdmin", new{ uuid = Model.UUID})">
             @Html.IconImage("setting") @("Source settings".Localize())</a>
         </li>
     </ul>
@@ -51,22 +44,39 @@
                         <option selected="@(Model.SourceType == SourceTypeEnum.XML ? true : false)" value="@((int)SourceTypeEnum.XML)">@SourceTypeEnum.XML</option>
                     </select>
                 </p>
-                
+                if (Model.SourceType == SourceTypeEnum.SQL || Model.SourceType == SourceTypeEnum.SQLQUERY)
+                {
+                    <p class="form-item">
+                         <label>Connectionstring</label>
+                         <input name="importSetting.Connectionstring" type="text" value="@Model.ConnectionString" />
+                     </p>
+                }
+                if (Model.SourceType == SourceTypeEnum.XML){
+                    <p class="form-item">
+                         <label>XmlItemName</label>
+                         <input name="importSetting.XmlItemName" type="text" value="@Model.XmlItemName" />
+                    </p>
+                    <p class="form-item">
+                        <label>XmlReadFolder</label>
+                        <input name="importSetting.XmlReadFolder" type="text" value="@Model.XmlReadFolder" />
+                    </p>
+                    <p class="form-item">
+                         <label>XmlArchiveFolder</label>
+                         <input name="importSetting.XmlArchiveFolder" type="text" value="@Model.XmlArchiveFolder" />
+                    </p>
+                }
                 <p class="form-item">
-                    <label>Connectionstring</label>
-                    <input name="importSetting.Connectionstring" type="text" value="@Model.ConnectionString" />
-                </p>
-                <p class="form-item">
-                    @if (Model.SourceType == SourceTypeEnum.SQL)
-                     {
-                         <label>SQL Table</label>
-                         <input name="importSetting.DatabaseTable" type="text" value="@Model.DatabaseTable" />
-                     }
-                     else if (Model.SourceType == SourceTypeEnum.SQLQUERY)
-                     {
-                        <label>SQL Query</label>
-                        <textarea name="importSetting.Query">@Model.Query</textarea>
-                     }
+                    @switch (Model.SourceType)
+                    {
+                        case SourceTypeEnum.SQL:
+                            <label>SQL Table</label>
+                            <input name="importSetting.DatabaseTable" type="text" value="@Model.DatabaseTable" />
+                            break;
+                        case SourceTypeEnum.SQLQUERY:
+                            <label>SQL Query</label>
+                            <textarea name="importSetting.Query">@Model.Query</textarea>
+                            break;
+                    }
                 </p>
                 <p class="form-item">
                     <label>Kooboo Content folder</label>

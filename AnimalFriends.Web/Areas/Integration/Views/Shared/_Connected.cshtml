@@ -5,6 +5,8 @@
     <table id="connected" class="import-setting">
         <thead>
             <tr>
+                <th class="">
+                </th>
                 <th class="col-databasecolumn">
                     Sourcefield
                 </th>
@@ -19,10 +21,16 @@
         </thead>
         <tbody>
             @{int i = 0;}
-            @foreach (var field in Model)
+            @foreach (var field in Model.OrderByDescending(a => a.Key))
             {
-                
                 <tr>
+                    <td>
+                        @if (@field.Key)
+                        {
+                            <span class="icon-key" title="Key connection"></span>
+                        }
+                        
+                    </td>
                     <td>
                         @if (!field.IsDefault)
                         {

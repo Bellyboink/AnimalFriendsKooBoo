@@ -7,21 +7,13 @@
 
 @section Panel{
     <ul class="panel">
-        <li>
-            <a href="@Url.Action("Import", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))">
-                @Html.IconImage("import") @("Import".Localize())</a>
-        </li>
-        <li><a href="@Url.Action("Preview", ViewContext.RequestContext.AllRouteValues().Merge("return", ViewContext.HttpContext.Request.RawUrl))" data-show-on-check="Any" data-command-type="AjaxPost" data-confirm="@("Are you sure you want to delete these items?".Localize())">
-            @Html.IconImage("preview") @("Preview".Localize())</a>
-        </li>
-        <li><a href="@Url.Action("EditImportSetting", "IntegrationAdmin", new{ id = Model.UUID})">
+        <li><a href="@Url.Action("EditImportSetting", "IntegrationAdmin", new{ uuid = Model.UUID})">
             @Html.IconImage("setting") @("Source settings".Localize())</a>
         </li>
     </ul>
 }
 
-
-<div class="import">
+<div class="import import-setting">
     <h1 class="title">Importsetting: @Model.Name</h1>
     @{ ViewBag.UUID = Model.UUID;}
     @Html.Partial("_Connected", Model.MappedFields)
@@ -30,7 +22,7 @@
             @{ using(Ajax.BeginForm("AddMappedField", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" })){
                    <input type="hidden" name="uuid" value="@Model.UUID"/>
                    <div class="field">
-                       <label>Database</label>
+                       <label>Source field</label>
                        <select name="mappedField.SourceField">
                            @if (ViewBag.DatabaseTableStructure != null)
                            {
@@ -40,12 +32,15 @@
                                }
                            }
                        </select>
+                       <div>
+                          @Html.CheckBox("mappedField.Key",new{@id="Key"})<label for="Key">Use as key</label> 
+                       </div>   
                    </div>
                    <div class="field">
                        <label>Kooboo field</label>
                        @Html.Partial("_Fields")
                    </div>
-                   <input class="button-function" type="submit" value="Koppla ihop fält" />
+                   <input class="button-function" type="submit" value="Connect fields" />
                }
             }
         </li>

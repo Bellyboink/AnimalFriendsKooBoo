@@ -16,8 +16,8 @@
                 <tr>
                     <td><span class="more">@setting.SourceType</span></td>
                     <td>
-                        <h2>@Html.ActionLink(setting.Name, "EditImportSetting", "IntegrationAdmin",new{ id = setting.UUID, siteName = "AnimalFriends"}, new{@class=(setting.Active ? "active" : "")}) </h2>
-                        @Html.ActionLink("Edit import settings", "ImportSetting", "IntegrationAdmin",new{ id = setting.UUID, siteName = "AnimalFriends"}, new{@class=(setting.Active ? "active" : "")}) 
+                        <h2>@Html.ActionLink(setting.Name, "EditImportSetting", "IntegrationAdmin",new{ uuid = setting.UUID, siteName = "AnimalFriends"}, new{@class=(setting.Active ? "active" : "")}) </h2>
+                        @Html.ActionLink("Edit import settings", "ImportSetting", "IntegrationAdmin",new{ uuid = setting.UUID, siteName = "AnimalFriends"}, new{@class=(setting.Active ? "active" : "")}) 
                     </td>
                     <td>
                         @if (setting.Enabled)

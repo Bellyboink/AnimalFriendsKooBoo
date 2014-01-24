@@ -5,14 +5,17 @@
 	<div class="content">
 		<div @ViewHelper.Edit(Model,"Name")>@Html.Raw(Model.Name ?? "")</div>
 		<div @ViewHelper.Edit(Model,"DatabaseTable")>@Html.Raw(Model.DatabaseTable ?? "")</div>
-		<div @ViewHelper.Edit(Model,"ContentTypeFolder")>@Html.Raw(Model.ContentTypeFolder ?? "")</div>
 		<div @ViewHelper.Edit(Model,"MappedFields")>@Html.Raw(Model.MappedFields ?? "")</div>
+		<div @ViewHelper.Edit(Model,"ContentTypeFolder")>@Html.Raw(Model.ContentTypeFolder ?? "")</div>
 		<div @ViewHelper.Edit(Model,"SourceType")>@Html.Raw(Model.SourceType ?? "")</div>
 		<div @ViewHelper.Edit(Model,"Query")>@Html.Raw(Model.Query ?? "")</div>
 		<div @ViewHelper.Edit(Model,"RunOnApplicationStartup")>@Html.Raw(Model.RunOnApplicationStartup ?? "")</div>
 		<div @ViewHelper.Edit(Model,"LastStartedAt")>@Html.Raw(Model.LastStartedAt ?? "")</div>
 		<div @ViewHelper.Edit(Model,"RepeatIntervalInMinutes")>@Html.Raw(Model.RepeatIntervalInMinutes ?? "")</div>
 		<div @ViewHelper.Edit(Model,"Enabled")>@Html.Raw(Model.Enabled ?? "")</div>
+		<div @ViewHelper.Edit(Model,"XmlReadFolder")>@Html.Raw(Model.XmlReadFolder ?? "")</div>
+		<div @ViewHelper.Edit(Model,"XmlArchiveFolder")>@Html.Raw(Model.XmlArchiveFolder ?? "")</div>
+		<div @ViewHelper.Edit(Model,"XmlItemName")>@Html.Raw(Model.XmlItemName ?? "")</div>
 	</div>
 </div>
 }
