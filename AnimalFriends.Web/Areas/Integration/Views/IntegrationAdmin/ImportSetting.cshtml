@@ -16,7 +16,7 @@
 <div class="import import-setting">
     <h1 class="title">Importsetting: @Model.Name</h1>
     @{ ViewBag.UUID = Model.UUID;}
-    @Html.Partial("_Connected", Model.MappedFields)
+    @Html.Partial("_Connected", Model.MappedFields) 
     <ul class="functions">
         <li>
             @{ using(Ajax.BeginForm("AddMappedField", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "connected" })){
