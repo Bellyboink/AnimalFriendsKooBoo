@@ -216,3 +216,4 @@ pip-log.txt
 AnimalFriends.Web/Cms_Data/Web.config
 AnimalFriends.Web/Cms_Data/Web.Debug.config
 AnimalFriends.Web/Cms_Data/Web.Release.config
+lib/*.config
