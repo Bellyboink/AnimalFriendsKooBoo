@@ -1,0 +1,201 @@
+﻿/* --------- Header ---------- */
+
+#header{
+	background:@primaryColor;
+    padding:.5em;
+}
+
+#body-container {
+	margin: 0 auto;
+	max-width: 960px;
+    padding:1.5em;
+    min-height:200px;
+}
+
+/* --------- Footer ---------- */
+
+#footer {
+	background: #132458;
+    color: #fff;
+    font-size:0.9em;
+    padding: 1.5em;
+    min-height: 435px;
+    overflow: hidden;
+    text-shadow:1px 1px 1px rgba(256, 256, 256, 0.40);
+}
+
+#footer a{
+    color:#FFC40D;
+}
+
+#footer h4,
+#footer h5 {
+    color:#fff;
+    text-shadow: 1px 1px 1px #FFC40D;
+}
+
+.footer-inner{
+    max-width:960px;
+    margin:0 auto;
+    padding:0;
+}
+
+.footer-item{
+    box-sizing: border-box;
+    float:left;
+    list-style:none;
+    width:33.333333%;
+    padding:0 1em 0 0;
+    @media @mobile{
+        width:100%;
+    }
+}
+
+.logo{
+    background-size:200px;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align:center;
+    text-transform:none;
+    @media @mobile{
+        text-align:left;
+    }
+}
+
+.logo img{
+    width:3em;
+    text-indent: -999em;
+    vertical-align:middle;
+}
+
+.logo .logo-text{
+    color: #FFF;
+    font-size: 1.8em;
+    vertical-align: middle;
+    text-shadow: #FFC40D 1px 1px 1px;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .2em;
+    margin-left: .5em;
+    @media @mobile{
+        display:none;
+    }
+}
+
+/* --------- Main navigation -------------------- */
+
+#nav {
+	margin: 0 auto;
+    max-width:900px;
+    max-height:none !important;
+}
+
+.nav ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    width: 100%;
+    
+}
+
+.nav li {
+    display:inline-block;
+    list-style:none;
+    padding:0 1em;
+    &:last-child{
+        margin-bottom:0;
+    }
+    @media @mobile{
+        background: rgba(0,0,0,0.5);
+        display: block;
+        padding:0;
+        margin:.5em 0;
+    }
+
+}
+
+.nav.closed{
+	display:block;
+	position:relative !important;
+	@media @mobile {
+		display:none;
+	}
+}
+
+.nav a {
+    color:#fff;
+    display:inline-block;
+    text-decoration: none;
+    width:100%;
+    padding:10px 0;
+}
+
+.nav .active a {
+	border-bottom: 2px solid #D3C180;
+}
+
+.nav-toggle{
+    display:none;
+    @media @mobile{
+        color: #fff;
+        display: block;
+        top: 5px;
+        position: absolute;
+        right: 1em;
+        padding: .5em;
+    }
+}
+
+.nav-toggle:after{
+    border-top: 21px double #fff;
+    border-bottom: 7px solid #fff;
+    content: "";
+    height:7px;
+    width:42px;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:15px;
+}
+
+
+
+.splash-wrapper {
+    background:url(../images/penguins.jpg) center top;
+    width:100%;
+}
+
+.splash {
+    margin:0 auto;
+    max-width:960px;
+    text-shadow:1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.splash-image {
+    display: inline-block;
+    text-align:center;
+    margin:1%;
+    width:46%;
+}
+
+.splash-text {
+    display: inline-block;
+    font-style:italic;
+    vertical-align: top;
+    width: 50%;
+}
+
+.splash-text a{
+    text-decoration:underline;
+}
+
+.splash-text h2{
+    color:#132458;
+    font-size:1.7em;
+    font-style:normal;
+    text-transform:uppercase;
+}
+

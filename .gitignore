@@ -40,9 +40,6 @@ local.properties
 *.suo
 *.user
 *.sln.docstates
-Web.config
-Web.Debug.config
-Web.Release.config
 
 # Build results
 
@@ -216,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+AnimalFriends.Web/Cms_Data/Web.config
+AnimalFriends.Web/Cms_Data/Web.Debug.config
+AnimalFriends.Web/Cms_Data/Web.Release.config

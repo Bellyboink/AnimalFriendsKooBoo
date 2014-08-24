@@ -1,0 +1,36 @@
+﻿<div class="splash-wrapper">
+            <div class="splash">
+                <div class="splash-image">
+                    <img src="@Html.Raw(ViewBag.StartPageBanner.Image ?? "")" />
+                    @*<img src="@Url.FrontUrl().ThemeFileUrl("images/logo-big.png")" alt="Djurens vänner Lidköping" />*@
+                </div>
+                <div class="splash-text" >
+                    <h2 @ViewHelper.Edit(ViewBag.StartPageBanner,"Header")>@Html.Raw(ViewBag.StartPageBanner.Header ?? "")</h2>
+                    <div @ViewHelper.Edit(ViewBag.StartPageBanner,"Text")>
+                        @Html.Raw(ViewBag.StartPageBanner.Text ?? "")
+                    </div>
+                        @*Välkommen till djurens vänners hemsida.
+                        Djurens Vänners Riksorganisation bildades 1957 som en förening som verkar för sunt djurskydd och sann djurvänlighet.
+                        <br />
+                        En stor uppgift med vår hemsida är att hitta ditt djur som antingen är <a href="http://www.gp.se">saknat</a>
+                        , <a href="http://www.gp.se">funna</a> eller så kanske du är nyfiken på att hitta din nya vän <a href="http://www.gp.se">utplacering.</a>
+                        <br />
+                        Vi hjälper dig för vi är djurens vänner!*@
+                </div>
+            </div>
+        </div>
+
+<div>
+    <h3 class="title" @ViewHelper.Edit(ViewBag.StartPageBanner,"Image")>@Html.Raw(ViewBag.StartPageBanner.Image ?? "")</h3>
+    <div class="content">   
+        
+        <div @ViewHelper.Edit(ViewBag.StartPageBanner,"Header")>
+            @Html.Raw(ViewBag.StartPageBanner.Header ?? "")
+        </div>
+
+        <div @ViewHelper.Edit(ViewBag.StartPageBanner,"Text")>
+            @Html.Raw(ViewBag.StartPageBanner.Text ?? "")
+        </div>
+
+    </div>
+</div>

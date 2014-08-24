@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfLastAction xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kooboo.CMS.Search.Models">
 	<LastAction>
-		<FolderName>ImportSetting</FolderName>
+		<FolderName>StartPageBanners</FolderName>
 		<ContentSummary></ContentSummary>
-		<Action>Delete</Action>
-		<UtcActionDate>2014-01-24T15:02:44.2476016Z</UtcActionDate>
+		<Action>Update</Action>
+		<UtcActionDate>2014-08-15T21:06:49.6874221Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
-		<FolderName>ImportSetting</FolderName>
-		<ContentSummary></ContentSummary>
-		<Action>Delete</Action>
-		<UtcActionDate>2014-01-24T15:02:39.4321201Z</UtcActionDate>
+		<FolderName>StartPageBanners</FolderName>
+		<ContentSummary>&amp;lt;p&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;/Cms_Data/Contents/AnimalFriends/Media/Katter/katt002.jpg&amp;quot; alt=&amp;quot;katt002.jpg&amp;quot; style=&amp;quot;undefined&amp;quot; width=&amp;quot;442&amp;quot; height=&amp;quot;662&amp;quot; data-mce-selected=&amp;quot;1&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlen&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: n-resize; margin: 0px; padding: 0px; left: 217.296875px; top: 12.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlee&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: e-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 343.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandles&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: s-resize; margin: 0px; padding: 0px; left: 217.296875px; top: 674.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlew&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: w-resize; margin: 0px; padding: 0px; left: -3.5px; top: 343.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlenw&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: nw-resize; margin: 0px; padding: 0px; left: -3.5px; top: 12.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlene&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: ne-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 12.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlese&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: se-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 674.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;mceResizeHandlesw&amp;quot; data-mce-bogus=&amp;quot;true&amp;quot; class=&amp;quot;mce-resizehandle&amp;quot; contenteditable=&amp;quot;false&amp;quot; unselectabe=&amp;quot;true&amp;quot; style=&amp;quot;cursor: sw-resize; margin: 0px; padding: 0px; left: -3.5px; top: 674.5px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2014-08-15T21:06:23.3609163Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
-		<FolderName>ImportSetting</FolderName>
-		<ContentSummary></ContentSummary>
-		<Action>Delete</Action>
-		<UtcActionDate>2014-01-24T15:02:36.6278397Z</UtcActionDate>
+		<FolderName>StartPageBanners</FolderName>
+		<ContentSummary>&lt;p&gt;&lt;img src=""&gt;&lt;img src="/Cms_Data/Contents/AnimalFriends/Media/Katter/katt002.jpg" alt="katt002.jpg" style="undefined" width="442" height="662" data-mce-selected="1"&gt;&lt;/p&gt;&lt;div id="mceResizeHandlen" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: n-resize; margin: 0px; padding: 0px; left: 217.296875px; top: 12.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlee" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: e-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 343.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandles" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: s-resize; margin: 0px; padding: 0px; left: 217.296875px; top: 674.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlew" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: w-resize; margin: 0px; padding: 0px; left: -3.5px; top: 343.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlenw" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: nw-resize; margin: 0px; padding: 0px; left: -3.5px; top: 12.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlene" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: ne-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 12.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlese" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: se-resize; margin: 0px; padding: 0px; left: 438.09375px; top: 674.5px;"&gt;&lt;/div&gt;&lt;div id="mceResizeHandlesw" data-mce-bogus="true" class="mce-resizehandle" contenteditable="false" unselectabe="true" style="cursor: sw-resize; margin: 0px; padding: 0px; left: -3.5px; top: 674.5px;"&gt;&lt;/div&gt;</ContentSummary>
+		<Action>Update</Action>
+		<UtcActionDate>2014-08-15T20:59:24.3049477Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
-		<FolderName>ImportSetting</FolderName>
+		<FolderName>StartPageBanners</FolderName>
 		<ContentSummary></ContentSummary>
-		<Action>Delete</Action>
-		<UtcActionDate>2014-01-24T15:02:30.7362506Z</UtcActionDate>
+		<Action>Update</Action>
+		<UtcActionDate>2014-08-15T20:55:17.634839Z</UtcActionDate>
 	</LastAction>
 	<LastAction>
-		<FolderName>ImportSetting</FolderName>
+		<FolderName>StartPageBanners</FolderName>
 		<ContentSummary></ContentSummary>
-		<Action>Delete</Action>
-		<UtcActionDate>2014-01-24T15:02:25.0806851Z</UtcActionDate>
+		<Action>Update</Action>
+		<UtcActionDate>2014-08-15T20:54:29.6540946Z</UtcActionDate>
 	</LastAction>
 </ArrayOfLastAction>

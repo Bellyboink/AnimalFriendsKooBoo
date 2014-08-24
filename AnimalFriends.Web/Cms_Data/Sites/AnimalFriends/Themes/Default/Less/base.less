@@ -1,0 +1,126 @@
+﻿/*
+[Contents]
+
+	0- Global
+	1- Links
+	2- Content(For tinymce)
+	3- Form
+*/
+
+/* =0 Global
+---------------------------------------------------------------------------------------------------------------------*/
+body {
+	font: 16px/24px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.hide {
+	display: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+/* Clearfix */
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+/* for IE6 */
+*html .clearfix {
+	zoom: 1;
+}
+/* for IE7 */
+* + html .clearfix {
+	zoom: 1;
+}
+/* =1 Links
+---------------------------------------------------------------------------------------------------------------------*/
+a {
+	color: #203E98;
+	text-decoration: none;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.button {
+	background: #808080;
+	color: #FFF;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	min-width: 90px;
+	padding: 0 10px;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.button:hover {
+	background: #0078B1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: @primaryColor;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: bold;
+	line-height: 1.5em;
+    margin-bottom: 15px;
+	text-transform: uppercase;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
+
+p {
+	margin-bottom: 10px;
+}
+
+pre {
+	padding: 8px;
+}
+
+ol, 
+ul {
+	margin-bottom: 10px;
+	padding-left: 20px;
+}
+
+ol li {
+	list-style: decimal outside;
+}
+
+ul li {
+	list-style: disc outside;
+}
+
+img{
+    max-width:100% !important;
+    height:auto;
+}
+
+/* =3 Form
+---------------------------------------------------------------------------------------------------------------------*/
+/* Global
+---------------------------------------------------------*/
+button, input[type="submit"], input[type="reset"], input[type="button"] {
+	cursor: pointer;
+}

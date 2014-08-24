@@ -27,12 +27,13 @@ namespace AnimalFriends.Integration.Models
         public ModuleInfo_Metadata(string moduleName, string siteName)
         {
             var moduleInfo = ModuleInfo.Get(moduleName);
+            
 
             this.ModuleName = moduleInfo.ModuleName;
             this.Version = moduleInfo.Version;
             this.KoobooCMSVersion = moduleInfo.KoobooCMSVersion;
 
-            this.Settings = ModuleInfo.GetSiteModuleSettings(moduleName, siteName);
+            //this.Settings = moduleInfo.GetModuleSettings(
         }
         public string ModuleName { get; set; }
         public string Version { get; set; }

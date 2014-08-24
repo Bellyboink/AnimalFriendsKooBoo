@@ -1,9 +1,8 @@
 ﻿@using Kooboo.CMS.Search;
 @using Kooboo.CMS.Content.Models;
-<ul  class="list">
   @if(ViewBag.NewsList != null){
     foreach (var item in ViewBag.NewsList){
-    <li class="item-news" @ViewHelper.Edit(item)>
+    <article class="item-news" @ViewHelper.Edit(item)>
         <a href="@Url.FrontUrl().PageUrl(string.Format("{0}/Detail", Page_Context.Current.PageRequestContext.Page.Name), new { userkey = item.UserKey})">
             <h3 class="item-header" @ViewHelper.Edit(item,"Header")>@item.Header</h3>
         </a>
@@ -19,7 +18,6 @@
       	<div @ViewHelper.Edit(item,"Text")>
 			@Html.Raw(item.Text)
       	</div>
-    </li>
+    </article>
     }
-  }
-</ul>
+}

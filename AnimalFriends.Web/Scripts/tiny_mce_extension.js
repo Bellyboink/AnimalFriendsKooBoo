@@ -19,15 +19,18 @@
             resize: false,
             plugins: [
                 "advlist autolink lists link image charmap anchor",
-                "searchreplace visualblocks code fullscreen",
+                "searchreplace visualblocks rawcode fullscreen",
                 "media table contextmenu paste insertPage textcolor"
             ],
-            toolbar: "searchreplace undo redo | bold italic forecolor formatselect | indent outdent | alignleft aligncenter alignright alignjustify | bullist numlist | image link unlink insertPage | code fullscreen",
+            toolbar: "searchreplace undo redo | bold italic forecolor formatselect | indent outdent | alignleft aligncenter alignright alignjustify | bullist numlist | image link unlink insertPage | rawcode fullscreen",
             relative_urls: false,
             convert_urls: false,
-            extended_valid_elements: "style[type],script[type|src],iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder]",
             verify_html: false,
-            valid_children: "+body[style]" //http://tinymce.moxiecode.com/wiki.php/Configuration:valid_children
+            media_strict: false,
+            keep_styles: true,
+            extended_valid_elements: "*[*]",
+            valid_elements: '*[*]',
+            valid_children: "+body[style|link]" //http://tinymce.moxiecode.com/wiki.php/Configuration:valid_children
         };
     };
 

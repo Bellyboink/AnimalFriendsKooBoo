@@ -17,21 +17,20 @@ using Kooboo.CMS.Sites.Extension;
 using AnimalFriends.Integration.Areas.SampleModule.Models;
 namespace AnimalFriends.Integration.Areas.SampleModule
 {
-    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(IModuleAction), Key = SampleAreaRegistration.ModuleName)]
-    public class ModuleAction : IModuleAction
+    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(IModuleEvents), Key = SampleAreaRegistration.ModuleName)]
+    public class ModuleAction : IModuleEvents
     {
-        public void OnExcluded(Kooboo.CMS.Sites.Models.Site site)
+        public void OnExcluded(ModuleContext moduleContext)
         {
             // Add code here that will be executed when the module was excluded to the site.
         }
 
-        public void OnIncluded(Kooboo.CMS.Sites.Models.Site site)
+        public void OnIncluded(ModuleContext moduleContext)
         {
             // Add code here that will be executed when the module was included to the site.
         }
 
-
-        public void OnInstalling(ControllerContext controllerContext)
+        public void OnInstalling(ModuleContext moduleContext, ControllerContext controllerContext)
         {
             var moduleInfo = ModuleInfo.Get(SampleAreaRegistration.ModuleName);
             var installModel = new InstallModel();
@@ -45,7 +44,12 @@ namespace AnimalFriends.Integration.Areas.SampleModule
             // Add code here that will be executed when the module installing.
         }
 
-        public void OnUninstalling(ControllerContext controllerContext)
+        public void OnUninstalling(ModuleContext moduleContext, ControllerContext controllerContext)
+        {
+            // Add code here that will be executed when the module uninstalling.
+        }
+
+        public void OnReinstalling(ModuleContext moduleContext, ControllerContext controllerContext, Kooboo.CMS.Sites.Extension.ModuleArea.Management.InstallationContext installationContext)
         {
             // Add code here that will be executed when the module uninstalling.
         }

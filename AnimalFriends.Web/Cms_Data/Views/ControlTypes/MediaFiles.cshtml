@@ -24,7 +24,6 @@
                 <!-- /ko -->
             </ul>
             <a class="action add" href='@("@")Url.Action("Selection", ViewContext.RequestContext.AllRouteValues().Merge("Controller", "MediaContent").Merge("FolderName", null))")'>@@Html.IconImage("plus small")</a>
-            @Html.Raw(FormHelper.Tooltip(Model.Tooltip))
         </div>
         <script>
             $(function () {
@@ -82,7 +81,7 @@
                         },
                         onload: function (currentHandle, pop, config) {
                             var iframe = pop.children('iframe'),
-                            iframeSrc = iframe[0].contentWindow.document.loSampleModuleion.href;
+                            iframeSrc = iframe[0].contentWindow.document.location.href;
                             if (iframeSrc == 'about:blank') {
                                 return false;
                             }

@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="shortcut icon" href='@Url.FrontUrl().ThemeFileUrl("images/favicon.ico")' />
+    <link rel="shortcut icon" href='@Url.FrontUrl().ThemeFileUrl("images/favicon.ico")' />
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
-    @Html.FrontHtml().Title()
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    @Html.FrontHtml().HtmlTitle()
     @Html.FrontHtml().Meta()
     @Html.FrontHtml().RegisterStyles()
     @Html.FrontHtml().RegisterScripts()
@@ -13,19 +17,17 @@
 <body>
     <header id="header">
         <a href="/" class="logo">
-            <img src="@Url.FrontUrl().ThemeFileUrl("images/logo-text.png")" alt="Djurens vänner Lidköping" />
+            <img class="logo-image" src="@Url.FrontUrl().ThemeFileUrl("images/logo-big.png")" alt="Djurens vänner Lidköping" />
+            <strong class="logo-text">Djurens vänner i Lidköping</strong>
         </a>
         @Html.FrontHtml().RenderView("Menu", ViewData)
     </header>
     <div id="body-container">
       	@Html.FrontHtml().Position("headerContainer")
-        <div id="main-container" class="clearfix">
+        <div id="main-container">
             @Html.FrontHtml().Position("mainContainer")
         </div>
     </div>
     @Html.FrontHtml().RenderView("Footer",ViewData)
-    <div class="hide">
-        @Html.FrontHtml().RenderView("LoginForm", ViewData)
-    </div>
 </body>
 </html>

@@ -114,6 +114,23 @@ body.loading .block.loading {
 	z-index: 6001;
 }
 
+/* Message
+----------------------------------------------------------*/
+.block.message {
+	background: #F3F3F3;
+	border-left: 5px solid #CCC;
+	display: inline-block;
+	font-size: 16px;
+	min-height: 60px;
+	min-width: 400px;
+	padding: 10px;
+}
+
+.block.message.success {
+	border-color: #5BA52E;
+	color: #5BA52E;
+}
+
 /* Icons
 ----------------------------------------------------------*/
 img.icon {
@@ -301,13 +318,13 @@ img.icon.save.small {
 	width: 16px;
 }
 
-img.icon.member-block{
+img.icon.member-block {
 	background-position: -110px -52px;
 	height: 12px;
 	width: 20px;
 }
 
-img.icon.database-block{
+img.icon.database-block {
 	background-position: -190px -80px;
 	height: 16px;
 	width: 16px;
@@ -413,6 +430,18 @@ img.icon.warning.big {
 	background-position: -47px -160px;
 	height: 24px;
 	width: 28px;
+}
+
+img.icon.reget {
+	background-position: -52px -123px;
+	height: 12px;
+	width: 13px;
+}
+
+img.icon.reget.on {
+	background-position: -38px -123px;
+	height: 12px;
+	width: 13px;
 }
 
 img.icon.undo {
@@ -599,8 +628,14 @@ input, button, select, textarea {
 .checkbox-list li,
 .radio-list li {
 	clear: both;
-	height: 13px;
 	margin-top: 5px;
+	overflow: hidden;
+}
+
+.checkbox-list li .tip,
+.radio-list li .tip {
+	float: left;
+	margin: 5px 0 0 18px;
 }
 
 .checkbox-list li:first-child,
@@ -1399,7 +1434,7 @@ body .select2-results .select2-result-label {
 }
 
 .image-editor input.mini {
-	padding: 0!important;
+	padding: 0 !important;
 }
 
 .in-dialog .image-editor .original-image {
@@ -1532,6 +1567,15 @@ body .select2-results .select2-result-label {
 	position: absolute;
 }
 
+/* Data rule type */
+.common-form.data-rule-type table {
+	min-height: 366px;
+}
+
+.common-form.data-rule-type td {
+	vertical-align: top;
+}
+
 /* Common table
 ----------------------------------------------------------*/
 .common-table table {
@@ -1662,15 +1706,6 @@ body .select2-results .select2-result-label {
 	vertical-align: top;
 }
 
-.common-table tr.unlocalized td {
-	background: #F5F5F5;
-	color: #666;
-}
-
-.common-table tr.unlocalized td a {
-	color: #666;
-}
-
 .common-table tr:hover td {
 	background: #E7E7E7;
 }
@@ -1695,6 +1730,7 @@ body .select2-results .select2-result-label {
 .common-table td.common {
 	width: 300px;
 }
+
 .common-table td.short,
 .common-table td.type,
 .common-table td.date,
@@ -1833,8 +1869,13 @@ body .select2-results .select2-result-label {
 	width: 100%;
 }
 
+.simple-table th,
 .simple-table td {
 	padding: 5px;
+}
+
+.simple-table thead th {
+	background: #E1E1E1;
 }
 
 /* Common grid
@@ -1959,6 +2000,43 @@ body .select2-results .select2-result-label {
 	width: auto;
 }
 
+/* Box block
+----------------------------------------------------------*/
+.block.box {
+	border: 1px solid #CCC;
+	margin-bottom: 20px;
+}
+
+.block.box .title {
+	background: #E1E1E1;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+
+.block.box .container {
+	padding: 10px;
+}
+
+/* Columns
+----------------------------------------------------------*/
+.columns > div {
+	float: left;
+}
+
+.columns > div:first-child {
+	margin: 0;
+}
+
+.columns .col-31 {
+	margin-left: 3%;
+	width: 30%;
+}
+
+.columns .col-32 {
+	margin-left: 3%;
+	width: 63%;
+}
 
 /* Command
 ----------------------------------------------------------*/
@@ -2157,6 +2235,28 @@ body .select2-results .select2-result-label {
 	border: 1px solid #C2D5F2;
 }
 
+/* jQuery tabs
+----------------------------------------------------------*/
+.tabs.ui-tabs .ui-tabs-nav,
+.tabs.ui-tabs .ui-tabs-nav li a {
+	padding: 0;
+}
+
+.tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.tabs li.ui-tabs-active a {
+	background: #5EA8DE;
+	color: #FFF;
+}
+
+.tabs li.ui-tabs-active .arrow {
+	display: block;
+}
+
+
 /* Dialog
 ----------------------------------------------------------*/
 .block.dialog .title {
@@ -2189,62 +2289,72 @@ body .select2-results .select2-result-label {
 	font-weight: bold;
 }
 
-/* Process-steps
----------------------------------------------------------*/
-.process-steps{
-    position: relative;
-    font-size: 0;
-    width: 100%;
-    height: 30px;
-    border-bottom: 3px solid #ccc;
-    margin-bottom: 20px;
-    counter-reset: step;
+.dialog .step-content {
+	min-height: 436px;
 }
 
-.process-steps.fixed{
+/* Process-steps
+---------------------------------------------------------*/
+.process-steps {
+	position: relative;
+	font-size: 0;
+	width: 100%;
+	height: 30px;
+	border-bottom: 3px solid #ccc;
+	margin-bottom: 20px;
+	counter-reset: step;
+}
+
+.process-steps.fixed {
 	margin-top: 71px;
 }
 
-.process-steps .steps-inner{
-    overflow-x: hidden;
-    position: absolute;
+.process-steps .steps-inner {
+	overflow: hidden;
+	position: absolute;
 }
 
-.process-steps a, .process-steps span{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    color: #ccc;
-    margin: 0 50px;
-}
-.process-steps a:before, .process-steps span:before{
-    counter-increment: step;
-    content: counter(step) ".";
-}
-.process-steps span.current{
-    color: #000;
-}
-.process-steps a{
-    color: #999;
-}
-.process-steps a:hover{
-    color: #000;
-}
-.process-steps a b, .process-steps span b{
-    position: absolute;
-    display: block;
-    width: 9999px;
-    height: 3px;
-    bottom: -3px;
-    right: 50%;
-    z-index: 2;
-    background: #0078B1;
+.process-steps a, .process-steps span {
+	float: left;
+	position: relative;
+	display: block;
+	text-align: center;
+	height: 33px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #ccc;
+	margin: 0 50px;
 }
 
-.process-steps-tip{
+.process-steps a:before, .process-steps span:before {
+	counter-increment: step;
+	content: counter(step) ".";
+}
+
+.process-steps span.current {
+	color: #000;
+}
+
+.process-steps a {
+	color: #999;
+}
+
+.process-steps a:hover {
+	color: #000;
+}
+
+.process-steps a b, .process-steps span b {
+	position: absolute;
+	display: block;
+	width: 9999px;
+	height: 3px;
+	bottom: 0;
+	right: 50%;
+	z-index: 2;
+	background: #0078B1;
+}
+
+.process-steps-tip {
 	font-size: 18px;
 }
 
@@ -2483,6 +2593,8 @@ body #diffBox .diffTable td.lineNumber {
 	min-width: 100%;
 	position: absolute;
 	z-index: 1009;
+	max-height: 500px;
+	overflow-y: auto;
 }
 
 #header .panel ul li {
@@ -2496,6 +2608,7 @@ body #diffBox .diffTable td.lineNumber {
 	line-height: 34px;
 	margin: 0 -10px;
 	white-space: nowrap;
+	padding-right: 30px;
 }
 
 #header .panel ul a:hover {
@@ -2823,6 +2936,11 @@ body #diffBox .diffTable td.lineNumber {
 	float: left;
 }
 
+.breadcrumb span a {
+	color: #0078B1;
+	float: none;
+}
+
 /* Common-form
 ----------------------------------------------------------*/
 #main-container > .wrap .common-form.fixed {
@@ -3051,6 +3169,10 @@ ul.site-tree {
 	color: #000;
 }
 
+.sitemap-description li span.unsynced {
+	background-color: #DBCF8E;
+}
+
 .sitemap-description li span.unpublished {
 	background: #C1C1C1;
 }
@@ -3099,6 +3221,10 @@ ul.site-tree {
 .map-item.inherited {
 	background-image: url(images/stripe.png);
 	background-repeat: repeat;
+}
+
+.map-item.unsynced {
+	background-color: #DBCF8E;
 }
 
 .map-item.show-in-menu > a {
@@ -3186,34 +3312,34 @@ ul.site-tree {
 
 /* Content block
 ----------------------------------------------------------*/
-.content-block{
+.content-block {
 	float: left;
 	width: 160px;
-    min-height: 150px;
+	min-height: 150px;
 	margin: 0 20px 20px 0;
 	overflow: hidden;
 	position: relative;
 }
 
-.content-block.database.checked > ul{
+.content-block.database.checked > ul {
 	border-left: 2px solid #1f9284;
 	border-right: 2px solid #1f9284;
 	border-bottom: 2px solid #1f9284;
 }
 
-.content-block.membership.checked > ul{
+.content-block.membership.checked > ul {
 	border-left: 2px solid #5496A7;
 	border-right: 2px solid #5496A7;
 	border-bottom: 2px solid #5496A7;
 }
 
-.content-block.module.checked > ul{
+.content-block.module.checked > ul {
 	border-left: 2px solid #6a4a7c;
 	border-right: 2px solid #6a4a7c;
 	border-bottom: 2px solid #6a4a7c;
 }
 
-.content-block .content-block-header{
+.content-block .content-block-header {
 	height: 32px;
 	line-height: 32px;
 	padding-left: 20px;
@@ -3222,31 +3348,31 @@ ul.site-tree {
 	position: relative;
 }
 
-.content-block .content-block-header a{
+.content-block .content-block-header a {
 	color: #fff;
 	position: relative;
 	z-index: 3;
 }
 
-.content-block.database .content-block-header{
+.content-block.database .content-block-header {
 	background: #1f9284;
 }
 
-.content-block.membership .content-block-header{
+.content-block.membership .content-block-header {
 	background: #5496A7;
 }
 
-.content-block.module .content-block-header{
+.content-block.module .content-block-header {
 	background: #80678F;
 }
 
-.content-block .content-block-header img.icon{
+.content-block .content-block-header img.icon {
 	display: inline;
 	vertical-align: middle;
 	margin-right: 5px;
 }
 
-.content-block input[type="radio"]{
+.content-block input[type="radio"] {
 	margin: 4px 4px 0 0;
 	float: right;
 	display: none;
@@ -3254,7 +3380,7 @@ ul.site-tree {
 	z-index: 2;
 }
 
-.content-block input[type="radio"] ~ label{
+.content-block input[type="radio"] ~ label {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -3263,11 +3389,11 @@ ul.site-tree {
 	top: 0;
 }
 
-.content-block input[type="radio"] ~ label:hover{
+.content-block input[type="radio"] ~ label:hover {
 	cursor: pointer;
 }
 
-.content-block input[type="radio"] ~ .corner{
+.content-block input[type="radio"] ~ .corner {
 	display: none;
 	border-left: 32px solid transparent;
 	border-top: 32px solid #0078B1;
@@ -3276,43 +3402,43 @@ ul.site-tree {
 	top: 0;
 }
 
-.content-block input[type="radio"]:checked ~ .corner{
+.content-block input[type="radio"]:checked ~ .corner {
 	display: block;
 }
 
-.content-block > ul{
+.content-block > ul {
 	padding: 10px 0 10px 20px;
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
-.content-block:hover > ul{
+.content-block:hover > ul {
 	padding-left: 19px;
 	border-left: 2px solid #ccc;
 	border-right: 2px solid #ccc;
 	border-bottom: 2px solid #ccc;
 }
 
-.content-block.checked > ul{
+.content-block.checked > ul {
 	padding-left: 19px;
 }
 
 .content-block.checked input[type="radio"],
-.content-block:hover input[type="radio"]{
+.content-block:hover input[type="radio"] {
 	display: block;
 }
 
-.content-block > ul li{
+.content-block > ul li {
 	height: 32px;
 	overflow: hidden;
 }
 
-.content-block > ul a{
+.content-block > ul a {
 	line-height: 32px;
 }
 
-.content-block > ul a:hover{
+.content-block > ul a:hover {
 	color: #3ca8db;
 }
 
@@ -3673,13 +3799,13 @@ ul.site-tree {
 	background-color: #D4D4D4;
 }
 
-.block.menu li.with-icon > img.icon{
+.block.menu li.with-icon > img.icon {
 	position: absolute;
 	top: 5px;
 	left: 20px;
 }
 
-.block.menu li.with-icon > a{
+.block.menu li.with-icon > a {
 	padding-left: 50px;
 }
 /* Arrow */
@@ -3802,7 +3928,7 @@ ul.site-tree {
 /* =6 Other
 ---------------------------------------------------------------------------------------------------------------------*/
 /* jquery-ui autocomplete */
-.ui-autocomplete{
+.ui-autocomplete {
 	padding: 1px;
 	border-left: 1px solid #666;
 	border-right: 1px solid #666;
@@ -3810,8 +3936,55 @@ ul.site-tree {
 	background: #fff;
 }
 
-.ui-menu .ui-menu-item a.ui-state-focus{
+.ui-menu .ui-menu-item a.ui-state-focus {
 	margin: 0;
 	background: #0078b1;
 	color: #fff;
+}
+
+span.jquery-ui-spinner-rewrite input[type="text"] {
+	margin-left: 0;
+	padding: 3px 9px;
+}
+
+span.jquery-ui-spinner-rewrite .ui-spinner-input {
+	margin: 0;
+}
+
+span.jquery-ui-spinner-rewrite .ui-spinner-button {
+	color: #606060;
+	font-size: 10px;
+	text-align: center;
+	height: 13px;
+	border-left: 1px solid #aaa;
+	background: #eee;
+}
+
+span.jquery-ui-spinner-rewrite .ui-spinner-button.ui-state-hover {
+	color: #aaa;
+}
+
+span.jquery-ui-spinner-rewrite .ui-icon {
+	text-indent: 0;
+	overflow: hidden;
+	margin-left: -5px;
+	left: 50%;
+}
+
+span.jquery-ui-spinner-rewrite .ui-spinner-up {
+	top: 1px;
+	right: 1px;
+}
+
+span.jquery-ui-spinner-rewrite .ui-spinner-down {
+	right: 1px;
+	bottom: 1px;
+}
+
+.ui-tooltip {
+	background: #fff;
+}
+
+.ui-datepicker {
+	width: 230px;
 }

@@ -1,11 +1,11 @@
 ﻿<div class="menu-inner">
-    @foreach (var item in MenuHelper.Top())
+    @*@foreach (var item in MenuHelper.Top())
       {    
           if (item.Navigation.Show && MenuHelper.IsCurrent(item))
           {
               <h4 class="menu-header">@item.FullName</h4>
           }
-      }
+      }*@
     
     <ul>
       @foreach (var item in MenuHelper.Sub()){

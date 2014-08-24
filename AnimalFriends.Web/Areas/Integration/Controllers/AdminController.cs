@@ -37,7 +37,7 @@ namespace AnimalFriends.Integration.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    ModuleInfo.SaveModuleSetting(ModuleName, siteName, moduleInfo.Settings);
+                    //ModuleInfo.Get(ModuleName).SaveModuleSettings(siteName, moduleInfo.Settings);
                     resultEntry.AddMessage("Module setting has been changed.".Localize());
                 }
 

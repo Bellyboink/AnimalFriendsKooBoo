@@ -230,7 +230,13 @@
                     $(this).attr('checked', true);
                 }
             });
+            var showTreeNode = function (radio) {
+                var $radio = $(radio);
+                $radio.parentsUntil('ul#J_DataTree', 'li').toggleClass('active');
+                $radio.parentsUntil('ul#J_DataTree', 'ul').show();
+            };
             checks.change(function () {
+                showTreeNode(this);
                 var parameter_tr = $('#parameter_tr').hide();
                 var parameterCon = $('#parameter');
                 var contentfrom = parameterCon.data('contentfrom');
@@ -444,6 +450,9 @@
                     checkInput.trigger('change');
                 }
             }
+            if (this.outerValue.SkipError == 'true') {
+                $('#skipError').attr('checked', true);
+            }
             // OutputCache
             var dur, policy, outputCache = $.parseJSON(this.outerValue.OutputCache);
             if (outputCache) {
@@ -485,9 +494,41 @@
             var self = this;
             // init tinymce
             this.textarea = $('#Textarea1');
+            var mediaLibraryUrl = this.textarea.attr('media_library_url');
+
+            var chooseFileFromMediaLibrary = function (inputId, value, fileType, window) {
+
+                // execute popup
+                var topJQ = top._jQuery || top.jQuery;
+                var id = new Date().getTime();
+                topJQ.pop({
+                    id: id,
+                    url: mediaLibraryUrl,
+                    width: 900,
+                    height: 500,
+                    dialogClass: 'iframe-dialog',
+                    frameHeight: '100%',
+                    beforeLoad: function () {
+                    },
+                    onload: function (handle, pop, config) {
+                        top.onFileSelected = function (src, text, option) {
+                            var $srcInput = $('#' + inputId);
+                            $srcInput.val(src);
+                            var $descriptionInput = $srcInput.parent().parent().parent().next().find('input');
+                            $descriptionInput.val(text);
+                        };
+                        top.fileSelectPop = pop;
+                    },
+                    onclose: function (handle, pop, config) {
+
+                    }
+                });
+                tinymce.ztopKoobooDialog(id);
+            }
             tinyMCE.init($.extend({}, tinyMCE.getKoobooConfig({ autoresize: false }), {
                 elements: this.textarea.attr('id'),
-                media_library_url: this.textarea.attr('media_library_url'),
+                file_browser_callback: chooseFileFromMediaLibrary,
+                media_library_url: mediaLibraryUrl,
                 media_library_title: this.textarea.attr('media_library_title'),
                 editor_selector: "richeditor",
                 relative_urls: undefined,
@@ -502,6 +543,14 @@
                     }
                     // inject style
                     self.injectStyle();
+                }, setup: function (ed) {
+                    ed.on('FullscreenStateChanged', function (e) {
+                        $(window.parent.document).find('iframe').toggleClass('fullscreen');
+                    });
+                    ed.on('BeforeSetContent', function (e) {
+                        //console.log(e.content);
+                        e.format = 'raw';
+                    });
                 }
             }));
         },
@@ -724,6 +773,9 @@
             var moduleName = self.outerValue.ModuleName;
             if (moduleName) { $('input[name="ModuleName"][value="' + moduleName + '"]').attr('checked', true).trigger('change'); }
 
+            if (this.outerValue.SkipError == 'true') {
+                $('#skipError').attr('checked', true);
+            }
             setTimeout(function () {
                 var entryName = self.outerValue.EntryName;
                 if (entryName) {
@@ -850,6 +902,9 @@
 
             var noProxy = this.outerValue.NoProxy;
             if (noProxy == "true") { $('input[name="NoProxy"]').attr('checked', true); }
+
+            var proxyStylesheet = this.outerValue.ProxyStylesheet;
+            if (proxyStylesheet == "true") { $('input[name="ProxyStylesheet"]').attr('checked', true); }
 
             // OutputCache
             var dur, policy, outputCache = $.parseJSON(this.outerValue.OutputCache);

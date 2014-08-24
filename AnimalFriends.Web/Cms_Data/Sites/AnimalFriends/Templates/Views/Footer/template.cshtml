@@ -1,16 +1,14 @@
 ﻿<footer id="footer">
-    <div class="footer-inner">
-  	    <ul>
-            @foreach (var item in ViewBag.FooterItems){
-            <li class="footer-item footer-item-@item.CssClass" @ViewHelper.Edit(item)>
-                <h4>
-                  @item.Header
-			    </h4>
-          	    <div>
-                  @Html.Raw(item.Text)
-              </div>
-            </li>
-            }
-        </ul>
-    </div>
+  	<ul class="footer-inner">
+        @foreach (var item in ViewBag.FooterItems){
+        <li class="footer-item footer-item-@item.CssClass" @ViewHelper.Edit(item)>
+            <h4>
+                @item.Header
+			</h4>
+          	<div>
+                @Html.Raw(item.Text)
+            </div>
+        </li>
+        }
+    </ul>
 </footer>
